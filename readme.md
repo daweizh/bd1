@@ -2,15 +2,17 @@
 
 ## 大数据编程基础
 
-<table style="border:0px;width:100%;">
+
+
+<table style="border:0px;" width="100%">
   <tr>
-    <th style="border:0px;width:20px;">1.</th>
-    <th style="border:0px;text-align:left;">学习C++算法编程的</th>
-    <td style="border:0px;text-align:right;">
+    <th width="20px" >1.</th>
+    <th >学习C++算法编程的</th>
+    <td >
       <a href="2020/" target="_blank">讲义</a>
     </td>
   </tr>
-  <tr>
+  <!-- <tr>
     <th style="border:0px;width:20px;">2.</th>
     <th style="border:0px;text-align:left;">学习C++编程竞赛相关的</th>
     <td style="border:0px;text-align:right;">
@@ -24,7 +26,7 @@
       <a href="game/arith32.rar" target="_blank">arith32</a>，
       <a href="game/arith64.rar" target="_blank">arith64</a>
     </td>
-  </tr>
+  </tr> -->
 </table>
 
 <!-- 
