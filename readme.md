@@ -9,7 +9,7 @@
     - 第04讲 [搭建Windows下编程环境](2020/04/win-ide.html)
 2. [软件工具](https://pan.baidu.com/s/1b2hb8Of9fKAWzHx8ayllPw)
     - VMware-workstation-full-15.5.1-15018445.exe [官网](https://www.vmware.com/cn/products/workstation-pro.html)
-    - [官网](https://ubuntu.com/)
+    - ubuntu-18.04.3-live-server-amd64.iso [官网](https://ubuntu.com/)
     - putty-0.73-installer.msi [官网](https://putty.en.softonic.com/)
 
 
