@@ -5,6 +5,8 @@
 1. 课程讲义
     - 第01讲 [简介](2020/01/intro.html)
     - 第02讲 [基础环境准备](2020/02/base-env.html)
+    - 第03讲 [Hadoop本地部署](2020/03/local.html)
+    - 第04讲 [搭建Windows下编程环境](2020/04/win-ide.html)
 2. [软件工具](https://pan.baidu.com/s/1b2hb8Of9fKAWzHx8ayllPw)
     - VMware-workstation-full-15.5.1-15018445.exe [官网](https://www.vmware.com/cn/products/workstation-pro.html)
     - [官网](https://ubuntu.com/)
