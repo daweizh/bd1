@@ -1,0 +1,552 @@
+<!DOCTYPE html><html><head>
+      <title>intro</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E7%AC%AC1%E7%AB%A0-%E7%BB%AA%E8%AE%BA">&#x7B2C;1&#x7AE0; &#x7EEA;&#x8BBA;</h1>
+
+<h2 class="mume-header" id="11-%E4%B8%BA%E4%BB%80%E4%B9%88">1.1 &#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</h2>
+
+<p>Google&#x6709;&#x5F88;&#x591A;&#x521B;&#x65B0;&#x6027;&#x5E94;&#x7528;&#xFF0C;&#x5982; Google&#x641C;&#x7D22;&#x5F15;&#x64CE;&#xFF0C;Gmail&#xFF0C;&#x5B89;&#x5353;&#xFF0C;AppspotGoogle Maps&#xFF0C;Google Earth&#xFF0C;Google&#x5B66;&#x672F;&#xFF0C;Google&#x7FFB;&#x8BD1;&#xFF0C;Google+&#x7B49;&#xFF0C;&#x4E0B;&#x4E00;&#x6B65;Google What&#xFF1F;&#xFF1F;</p>
+<p><img src="images/intro01.jpg" alt></p>
+<p>Hadoop&#x601D;&#x60F3;&#x6765;&#x6E90;&#x4E8E;Google&#xFF0C;&#x662F;Google&#x5BF9;&#x6240;&#x9762;&#x4E34;&#x95EE;&#x9898;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x7684;&#x4E00;&#x79CD;&#x518D;&#x7248;&#x3002;Google&#x9762;&#x5BF9;&#x7684;&#x6570;&#x636E;&#x548C;&#x8BA1;&#x7B97;&#x96BE;&#x9898;&#x5305;&#x62EC;&#xFF1A;</p>
+<ol>
+<li>&#x5927;&#x91CF;&#x7684;&#x7F51;&#x9875;&#x600E;&#x4E48;&#x5B58;&#x50A8;&#xFF1F;</li>
+<li>&#x641C;&#x7D22;&#x7B97;&#x6CD5;</li>
+<li>Page-Rank&#x8BA1;&#x7B97;&#x95EE;&#x9898;</li>
+</ol>
+<h3 class="mume-header" id="111-%E5%A4%A7%E9%87%8F%E7%9A%84%E7%BD%91%E9%A1%B5%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8">1.1.1 &#x5927;&#x91CF;&#x7684;&#x7F51;&#x9875;&#x5982;&#x4F55;&#x5B58;&#x50A8;&#xFF1F;</h3>
+
+<ul>
+<li>Google&#x91C7;&#x7528;&#x4F4E;&#x6210;&#x672C;&#x4E4B;&#x9053;&#x5B58;&#x50A8;&#x641C;&#x7D22;&#x5230;&#x7684;&#x6D77;&#x91CF;&#x7F51;&#x9875;
+<ol>
+<li>&#x4E0D;&#x4F7F;&#x7528;&#x8D85;&#x7EA7;&#x8BA1;&#x7B97;&#x673A;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528;&#x5B58;&#x50A8;&#xFF08;&#x6DD8;&#x5B9D;&#x7684;&#x53BB;i&#xFF0C;&#x53BB;e&#xFF0C;&#x53BB;o&#x4E4B;&#x8DEF;&#xFF09;<br>
+<img src="images/intro02.jpg" alt></li>
+<li>&#x5927;&#x91CF;&#x4F7F;&#x7528;&#x666E;&#x901A;&#x7684;pc&#x670D;&#x52A1;&#x5668;&#xFF08;&#x53BB;&#x6389;&#x673A;&#x7BB1;&#xFF0C;&#x5916;&#x8BBE;&#xFF0C;&#x786C;&#x76D8;&#xFF09;&#xFF0C;&#x63D0;&#x4F9B;&#x6709;&#x5197;&#x4F59;&#x7684;&#x96C6;&#x7FA4;&#x670D;&#x52A1;<br>
+<img src="images/intro03.jpg" alt></li>
+<li>&#x5168;&#x4E16;&#x754C;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#xFF0C;&#x6709;&#x4E9B;&#x9644;&#x5E26;&#x53D1;&#x7535;&#x5382;</li>
+<li>&#x8FD0;&#x8425;&#x5546;&#x5411;Google&#x5012;&#x4ED8;&#x8D39;</li>
+</ol>
+</li>
+<li>&#x5EFA;&#x8BBE;&#x96C6;&#x88C5;&#x7BB1;&#x6570;&#x636E;&#x4E2D;&#x5FC3;
+<ol>
+<li>&#x4F4D;&#x4E8E;Mountain View&#xFF0C;Calif&#x603B;&#x90E8;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x5FC3;</li>
+<li>&#x603B;&#x529F;&#x7387;&#x4E3A;10000&#x5343;&#x74E6;&#xFF0C;&#x62E5;&#x6709;45&#x4E2A;&#x96C6;&#x88C5;&#x7BB1;&#xFF0C;&#x6BCF;&#x4E2A;&#x96C6;&#x88C5;&#x7BB1;&#x4E2D;&#x6709;1160&#x53F0;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8BE5;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#x7684;&#x80FD;&#x6548;&#x6BD4;&#x4E3A;1.25&#xFF08;PUE&#x4E3A;1&#x8868;&#x793A;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#x6CA1;&#x6709;&#x80FD;&#x6E90;&#x635F;&#x8017;&#xFF0C;&#x800C;&#x6839;&#x636E;2006&#x5E74;&#x7684;&#x7EDF;&#x8BA1;&#xFF0C;&#x4E00;&#x822C;&#x516C;&#x53F8;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#x7684;&#x80FD;&#x6548;&#x6BD4;&#x4E3A;2.0&#x6216;&#x66F4;&#x9AD8;&#x3002;Google&#x7684;1.16&#x5DF2;&#x7ECF;&#x4F4E;&#x4E8E;&#x7F8E;&#x56FD;&#x80FD;&#x6E90;&#x90E8;2011&#x5E74;&#x7684;1.2&#x7684;&#x76EE;&#x6807;&#xFF09;<br>
+<img src="images/intro04.jpg" alt><br>
+<img src="images/intro05.jpg" alt></li>
+</ol>
+</li>
+</ul>
+<h3 class="mume-header" id="112-%E5%A6%82%E4%BD%95%E6%90%9C%E7%B4%A2%E7%BD%91%E9%A1%B5">1.1.2 &#x5982;&#x4F55;&#x641C;&#x7D22;&#x7F51;&#x9875;&#xFF1F;</h3>
+
+<p>&#x91C7;&#x7528;&#x5012;&#x6392;&#x7D22;&#x5F15;&#xFF0C;&#x901A;&#x8FC7;&#x5173;&#x952E;&#x5B57;&#x5B9A;&#x4F4D;&#x5E0C;&#x671B;&#x627E;&#x5230;&#x7684;&#x7F51;&#x9875;&#x3002;</p>
+<ol>
+<li>&#x4ECE;&#x6BCF;&#x4E2A;&#x7F51;&#x9875;&#x4E2D;&#x63D0;&#x53D6;&#x7279;&#x5F81;&#x9879;&#xFF0C;&#x5EFA;&#x7ACB;&#x5012;&#x6392;&#x7D22;&#x5F15;<br>
+<img src="images/intro06.jpg" alt></li>
+<li>&#x5012;&#x6392;&#x7D22;&#x5F15;&#x8868;<br>
+<img src="images/intro07.jpg" alt></li>
+<li>&#x5229;&#x7528;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x7684;&#x5173;&#x952E;&#x5B57;&#x627E;&#x5230;&#x6240;&#x8981;&#x7684;&#x7F51;&#x9875;<br>
+<img src="images/intro08.jpg" alt></li>
+</ol>
+<h3 class="mume-header" id="113-page-rank%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E7%BD%91%E9%A1%B5%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7">1.1.3 Page Rank&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x7F51;&#x9875;&#x7684;&#x91CD;&#x8981;&#x6027;</h3>
+
+<p>Page Rank&#x662F;Google&#x6700;&#x6838;&#x5FC3;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x7528;&#x4E8E;&#x7ED9;&#x6BCF;&#x4E2A;&#x7F51;&#x9875;&#x4EF7;&#x503C;&#x8BC4;&#x5206;&#xFF0C;&#x662F;Google&#x201C;&#x5728;&#x5783;&#x573E;&#x4E2D;&#x627E;&#x9EC4;&#x91D1;&#x201D;&#x7684;&#x5173;&#x952E;&#x7B97;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x7B97;&#x6CD5;&#x6210;&#x5C31;&#x4E86;&#x4ECA;&#x5929;&#x7684;Google&#x3002;</p>
+<ol>
+<li>PageRank&#x5411;&#x91CF;&#x7684;&#x5B9A;&#x4E49;<br>
+<img src="images/intro09.jpg" alt></li>
+<li>PageRank&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;<br>
+<img src="images/intro10.jpg" alt></li>
+<li>&#x7F51;&#x9875;&#x94FE;&#x63A5;&#x77E9;&#x9635;<br>
+<img src="images/intro11.jpg" alt></li>
+</ol>
+<p>PageRank&#x5411;&#x91CF;&#xFF0C;&#x77E9;&#x9635;G&#x5B9E;&#x5728;&#x592A;&#x5927;&#x4E86;&#xFF0C;&#x5355;&#x673A;&#x65E0;&#x6CD5;&#x8BA1;&#x7B97;&#x5B8C;&#x6210;&#xFF0C;Google&#x5DE5;&#x7A0B;&#x5E08;&#x4EEC;&#x53D1;&#x660E;&#x4E86;&#x91C7;&#x7528;Map-Reduce&#x8FDB;&#x884C;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li>PageRank Map&#x7B97;&#x6CD5;<br>
+<img src="images/intro12.jpg" alt></li>
+<li>Map&#x8FC7;&#x7A0B;&#x793A;&#x4F8B;<br>
+<img src="images/intro13.jpg" alt></li>
+<li>Page Rank Reduce&#x7B97;&#x6CD5;<br>
+<img src="images/intro14.jpg" alt></li>
+<li>Reduce&#x8FC7;&#x7A0B;&#x793A;&#x4F8B;<br>
+<img src="images/intro15.jpg" alt></li>
+</ol>
+<p>Google&#x641C;&#x7D22;&#x5F15;&#x64CE;&#x7684;&#x5EFA;&#x7ACB;&#x548C;&#x5E94;&#x7528;&#xFF0C;&#x5E26;&#x7ED9;&#x6211;&#x4EEC;&#x7684;&#x5173;&#x952E;&#x6280;&#x672F;&#x548C;&#x601D;&#x60F3;&#x5305;&#x62EC;&#xFF1A;</p>
+<ol>
+<li>GFS</li>
+<li>Map-Reduce</li>
+<li>Bigtable</li>
+</ol>
+<p>&#x4E3A;&#x540E;&#x6765;&#x7684;&#x5927;&#x6570;&#x636E;&#x6280;&#x672F;&#x53D1;&#x5C55;&#x6253;&#x4E0B;&#x4E86;&#x575A;&#x5B9E;&#x7684;&#x57FA;&#x7840;&#x3002;</p>
+<h2 class="mume-header" id="12-hadoop%E7%9A%84%E6%BA%90%E8%B5%B7">1.2 Hadoop&#x7684;&#x6E90;&#x8D77;</h2>
+
+<p>Doug Cutting&#x60F3;&#x8981;&#x5F00;&#x53D1;&#x4E00;&#x6B3E;&#x8F6F;&#x4EF6;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;Google&#x7684;&#x641C;&#x7D22;&#x5F15;&#x64CE;&#xFF0C;&#x80FD;&#x5E7F;&#x6CDB;&#x7528;&#x4E8E;&#x4E2A;&#x4EBA;&#x548C;&#x4F01;&#x4E1A;&#x3002;&#x4E8E;&#x662F;&#xFF0C;&#x7528;Java&#x5199;&#x4E86;&#x4E00;&#x4E2A;&#x5F00;&#x6E90;&#x7684;&#x641C;&#x7D22;&#x5F15;&#x64CE;&#xFF0C;&#x540E;&#x88AB;Apache&#x57FA;&#x91D1;&#x4F1A;&#x786E;&#x8BA4;&#x4E3A;&#x5176;&#x5B50;&#x9879;&#x76EE;Lucene&#x3002;</p>
+<ol>
+<li>Doug Cutting&#x5F00;&#x521B;&#x7684;&#x5F00;&#x6E90;&#x8F6F;&#x4EF6;&#xFF0C;&#x7528;Java&#x4E66;&#x5199;&#x4EE3;&#x7801;&#xFF0C;&#x5B9E;&#x73B0;&#x4E0E;Google&#x7C7B;&#x4F3C;&#x7684;&#x5168;&#x6587;&#x641C;&#x7D22;&#x529F;&#x80FD;&#xFF0C;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x5168;&#x6587;&#x68C0;&#x7D22;&#x5F15;&#x64CE;&#x7684;&#x67B6;&#x6784;&#xFF0C;&#x5305;&#x62EC;&#x5B8C;&#x6574;&#x7684;&#x67E5;&#x8BE2;&#x5F15;&#x64CE;&#x548C;&#x7D22;&#x5F15;&#x5F15;&#x64CE;&#x3002;</li>
+<li>&#x65E9;&#x671F;&#x53D1;&#x5E03;&#x5728;&#x4E2A;&#x4EBA;&#x7F51;&#x7AD9;&#x548C;SourceForge&#xFF0C;2001&#x5E74;&#x5E74;&#x5E95;&#x6210;&#x4E3A;Apache&#x8F6F;&#x4EF6;&#x57FA;&#x91D1;&#x4F1A;Jakarta&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x9879;&#x76EE;&#x3002;</li>
+<li>Lucene&#x7684;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x6613;&#x7528;&#x7684;&#x5DE5;&#x5177;&#x5305;&#xFF0C;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x5728;&#x76EE;&#x6807;&#x7CFB;&#x7EDF;&#x4E2D;&#x5B9E;&#x73B0;&#x5168;&#x6587;&#x68C0;&#x7D22;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x4EE5;&#x6B64;&#x4E3A;&#x57FA;&#x7840;&#x5EFA;&#x7ACB;&#x8D77;&#x5B8C;&#x6574;&#x7684;&#x5168;&#x6587;&#x68C0;&#x7D22;&#x5F15;&#x64CE;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x5927;&#x6570;&#x91CF;&#x7684;&#x573A;&#x666F;&#xFF0C;Lucene&#x9762;&#x5BF9;&#x4E0E;Google&#x540C;&#x6837;&#x7684;&#x56F0;&#x96BE;&#xFF0C;&#x8FEB;&#x4F7F;Doug Cutting&#x5B66;&#x4E60;&#x548C;&#x6A21;&#x4EFF;Google&#x89E3;&#x51B3;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#x7684;&#x529E;&#x6CD5;&#x3002;</li>
+<li>&#x4E8E;&#x662F;&#x518D;&#x5199;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;Google&#x7684;&#x5FAE;&#x7F29;&#x7248;&#xFF1A;Nutch&#x3002;</li>
+</ol>
+<p>Nutch&#x4E2D;&#x5B66;&#x4E60;&#x4E86;Google&#x6280;&#x672F;&#xFF0C;&#x5F62;&#x6210;&#x4E86;&#x81EA;&#x6210;&#x7CFB;&#x7EDF;&#x7684;Hadoop&#x3002;</p>
+<ol>
+<li>2003-2004&#x5E74;&#xFF0C;Google&#x516C;&#x5F00;&#x4E86;&#x90E8;&#x5206;GFS&#x548C;Mapreduce&#x601D;&#x60F3;&#x7684;&#x7EC6;&#x8282;&#xFF0C;&#x4EE5;&#x6B64;&#x4E3A;&#x57FA;&#x7840;Doug Cutting&#x7B49;&#x4EBA;&#x7528;&#x4E86;2&#x5E74;&#x7684;&#x4E1A;&#x4F59;&#x65F6;&#x95F4;&#x5B9E;&#x73B0;&#x4E86;DFS&#x548C;Mapreduce&#x673A;&#x5236;&#xFF0C;&#x4F7F;Nutch&#x6027;&#x80FD;&#x98D9;&#x5347;&#x3002;</li>
+<li>Yahoo&#x62DB;&#x5B89;&#x4E86;Doug Cutting&#x53CA;&#x5176;&#x9879;&#x76EE;&#x3002;</li>
+<li>Hadoop&#x4E8E;2005&#x5E74;&#x79CB;&#x5929;&#x4F5C;&#x4E3A;Lucene&#x7684;&#x5B50;&#x9879;&#x76EE;Nutch&#x7684;&#x4E00;&#x90E8;&#x5206;&#x6B63;&#x5F0F;&#x5F15;&#x5165;Apache&#x57FA;&#x91D1;&#x4F1A;&#x3002;2006&#x5E74;3&#x6708;&#x4EFD;&#xFF0C;Map-Reduce&#x548C;Nutch Distributed File System (NDFS)&#x5206;&#x522B;&#x88AB;&#x7EB3;&#x5165;&#x79F0;&#x4E3A;Hadoop&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x3002;</li>
+<li>Hadoop&#x8FD9;&#x4E2A;&#x540D;&#x5B57;&#x6765;&#x6E90;&#x4E8E;Doug Cutting&#x513F;&#x5B50;&#x7684;&#x73A9;&#x5177;&#x5927;&#x8C61;&#x3002;</li>
+</ol>
+<p>&#x76EE;&#x524D;Hadoop&#x8FBE;&#x5230;&#x7684;&#x9AD8;&#x5EA6;&#x5305;&#x62EC;&#xFF1A;</p>
+<ol>
+<li>&#x662F;&#x5B9E;&#x73B0;&#x4E91;&#x8BA1;&#x7B97;&#x7684;&#x4E8B;&#x5B9E;&#x6807;&#x51C6;&#x7684;&#x5F00;&#x6E90;&#x8F6F;&#x4EF6;</li>
+<li>&#x5305;&#x542B;&#x6570;&#x5341;&#x4E2A;&#x5177;&#x6709;&#x5F3A;&#x5927;&#x751F;&#x547D;&#x529B;&#x7684;&#x5B50;&#x9879;&#x76EE;</li>
+<li>&#x5DF2;&#x7ECF;&#x80FD;&#x5728;&#x6570;&#x5343;&#x8282;&#x70B9;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x5904;&#x7406;&#x6570;&#x636E;&#x91CF;&#x548C;&#x6392;&#x5E8F;&#x65F6;&#x95F4;&#x4E0D;&#x65AD;&#x6253;&#x7834;&#x4E16;&#x754C;&#x7EAA;&#x5F55;</li>
+</ol>
+<p>Hadoop&#x5B50;&#x9879;&#x76EE;&#x5BB6;&#x65CF;&#x89C1;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="images/intro16.jpg" alt></p>
+<h2 class="mume-header" id="13-hadoop%E7%9A%84%E6%9E%B6%E6%9E%84">1.3 Hadoop&#x7684;&#x67B6;&#x6784;</h2>
+
+<p>Hadoop&#x7684;&#x6574;&#x4F53;&#x67B6;&#x6784;&#x5305;&#x62EC;&#x7F51;&#x7EDC;&#x7CFB;&#x7EDF;&#x548C;&#x8282;&#x70B9;&#x7CFB;&#x7EDF;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#x3002;&#x8282;&#x70B9;&#x7CFB;&#x7EDF;&#x5305;&#x62EC;&#x7BA1;&#x7406;&#x8282;&#x70B9;Namenode&#x548C;JobTacker&#xFF08;&#x53EF;&#x90E8;&#x7F72;&#x5728;&#x4E00;&#x53F0;&#x8BA1;&#x7B97;&#x673A;&#xFF09;&#xFF0C;&#x6BCF;&#x4E2A;&#x5DE5;&#x4F5C;&#x8282;&#x70B9;&#x5305;&#x62EC;DataNode&#x548C;TaskTracker&#x4E24;&#x4E2A;&#x5DE5;&#x4F5C;&#x5206;&#x5DE5;&#x3002;</p>
+<p><img src="images/intro17.jpg" alt></p>
+<h3 class="mume-header" id="131-namenode">1.3.1 Namenode</h3>
+
+<p>Namenode&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x5305;&#x62EC;&#xFF1A;</p>
+<ol>
+<li>HDFS&#x7684;&#x5B88;&#x62A4;&#x7A0B;&#x5E8F;</li>
+<li>&#x8BB0;&#x5F55;&#x6587;&#x4EF6;&#x662F;&#x5982;&#x4F55;&#x5206;&#x5272;&#x6210;&#x6570;&#x636E;&#x5757;&#x7684;&#xFF0C;&#x4EE5;&#x53CA;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x5757;&#x88AB;&#x5B58;&#x50A8;&#x5230;&#x54EA;&#x4E9B;&#x8282;&#x70B9;&#x4E0A;</li>
+<li>&#x5BF9;&#x5185;&#x5B58;&#x548C;I/O&#x8FDB;&#x884C;&#x96C6;&#x4E2D;&#x7BA1;&#x7406;</li>
+<li>&#x662F;&#x4E2A;&#x5355;&#x70B9;&#xFF0C;&#x53D1;&#x751F;&#x6545;&#x969C;&#x5C06;&#x4F7F;&#x96C6;&#x7FA4;&#x5D29;&#x6E83;</li>
+</ol>
+<p>Namenode&#x7684;&#x90E8;&#x7F72;&#x4F4D;&#x7F6E;&#x89C1;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="images/intro18.jpg" alt></p>
+<h3 class="mume-header" id="132-secondary-namenode">1.3.2 Secondary Namenode</h3>
+
+<p>Secondary Namenode&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x5305;&#x62EC;&#xFF1A;</p>
+<ol>
+<li>&#x76D1;&#x63A7;HDFS&#x72B6;&#x6001;&#x7684;&#x8F85;&#x52A9;&#x540E;&#x53F0;&#x7A0B;&#x5E8F;</li>
+<li>&#x6BCF;&#x4E2A;&#x96C6;&#x7FA4;&#x90FD;&#x6709;&#x4E00;&#x4E2A;</li>
+<li>&#x4E0E;NameNode&#x8FDB;&#x884C;&#x901A;&#x8BAF;&#xFF0C;&#x5B9A;&#x671F;&#x4FDD;&#x5B58;HDFS&#x5143;&#x6570;&#x636E;&#x5FEB;&#x7167;</li>
+<li>&#x5F53;NameNode&#x6545;&#x969C;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x5907;&#x7528;NameNode&#x4F7F;&#x7528;</li>
+</ol>
+<p>Secondary Namenode&#x7684;&#x90E8;&#x7F72;&#x67B6;&#x6784;&#x89C1;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="images/intro19.jpg" alt></p>
+<h3 class="mume-header" id="133-datanode">1.3.3 DataNode</h3>
+
+<p>DataNode&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x5305;&#x62EC;&#xFF1A;</p>
+<ol>
+<li>&#x6BCF;&#x53F0;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x90FD;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;</li>
+<li>&#x8D1F;&#x8D23;&#x628A;HDFS&#x6570;&#x636E;&#x5757;&#x8BFB;&#x5199;&#x5230;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</li>
+</ol>
+<p>DataNode&#x7684;&#x5DE5;&#x4F5C;&#x67B6;&#x6784;&#x89C1;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="images/intro20.jpg" alt></p>
+<h3 class="mume-header" id="134-jobtracker">1.3.4 JobTracker</h3>
+
+<p>JobTracker&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x5305;&#x62EC;&#xFF1A;</p>
+<ol>
+<li>&#x7528;&#x4E8E;&#x5904;&#x7406;&#x4F5C;&#x4E1A;&#xFF08;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#xFF09;&#x7684;&#x540E;&#x53F0;&#x7A0B;&#x5E8F;</li>
+<li>&#x51B3;&#x5B9A;&#x6709;&#x54EA;&#x4E9B;&#x6587;&#x4EF6;&#x53C2;&#x4E0E;&#x5904;&#x7406;&#xFF0C;&#x7136;&#x540E;&#x5207;&#x5272;task&#x5E76;&#x5206;&#x914D;&#x8282;&#x70B9;</li>
+<li>&#x76D1;&#x63A7;task&#xFF0C;&#x91CD;&#x542F;&#x5931;&#x8D25;&#x7684;task&#xFF08;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x8282;&#x70B9;&#xFF09;</li>
+<li>&#x6BCF;&#x4E2A;&#x96C6;&#x7FA4;&#x53EA;&#x6709;&#x552F;&#x4E00;&#x4E00;&#x4E2A;JobTracker&#xFF0C;&#x4F4D;&#x4E8E;Master&#x8282;&#x70B9;</li>
+</ol>
+<p>JobTracker&#x7684;&#x90E8;&#x7F72;&#x67B6;&#x6784;&#x89C1;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="images/intro21.jpg" alt></p>
+<h3 class="mume-header" id="135-tasktracker">1.3.5 TaskTracker</h3>
+
+<p>TaskTracker&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x5305;&#x62EC;&#xFF1A;</p>
+<ol>
+<li>&#x4F4D;&#x4E8E;slave&#x8282;&#x70B9;&#x4E0A;&#xFF0C;&#x4E0E;datanode&#x7ED3;&#x5408;&#xFF08;&#x4EE3;&#x7801;&#x4E0E;&#x6570;&#x636E;&#x4E00;&#x8D77;&#x7684;&#x539F;&#x5219;&#xFF09;</li>
+<li>&#x7BA1;&#x7406;&#x5404;&#x81EA;&#x8282;&#x70B9;&#x4E0A;&#x7684;task&#xFF08;&#x7531;jobtracker&#x5206;&#x914D;&#xFF09;</li>
+<li>&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x53EA;&#x6709;&#x4E00;&#x4E2A;tasktracker&#xFF0C;&#x4F46;&#x4E00;&#x4E2A;tasktracker&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x591A;&#x4E2A;JVM&#xFF0C;&#x7528;&#x4E8E;&#x5E76;&#x884C;&#x6267;&#x884C;map&#x6216;reduce&#x4EFB;&#x52A1;</li>
+<li>&#x4E0E;jobtracker&#x4EA4;&#x4E92;</li>
+</ol>
+<p>TaskTracker&#x7684;&#x90E8;&#x7F72;&#x67B6;&#x6784;&#x89C1;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="images/intro22.jpg" alt></p>
+<h3 class="mume-header" id="136-master%E4%B8%8Eslave">1.3.6 Master&#x4E0E;Slave</h3>
+
+<p>Master&#x548C;Slave&#x7684;&#x5177;&#x4F53;&#x5206;&#x5DE5;&#x5305;&#x62EC;&#xFF1A;</p>
+<ol>
+<li>Master&#xFF1A;Namenode&#x3001;Secondary Namenode&#x3001;Jobtracker&#x3002;&#x6D4F;&#x89C8;&#x5668;&#xFF08;&#x7528;&#x4E8E;&#x89C2;&#x770B;&#x7BA1;&#x7406;&#x754C;&#x9762;&#xFF09;&#xFF0C;&#x5176;&#x5B83;Hadoop&#x5DE5;&#x5177;</li>
+<li>Slave&#xFF1A;Tasktracker&#x3001;Datanode</li>
+<li>Master&#x4E0D;&#x662F;&#x552F;&#x4E00;&#x7684;</li>
+</ol>
+<p>Master&#x548C;Slave&#x7684;&#x7ED3;&#x6784;&#x5206;&#x5DE5;&#x89C1;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="images/intro23.jpg" alt></p>
+<h2 class="mume-header" id="14-why-hadoop">1.4 Why hadoop&#xFF1F;</h2>
+
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x7535;&#x4FE1;&#x8FD0;&#x8425;&#x5546;&#x4FE1;&#x4EE4;&#x5206;&#x6790;&#x4E0E;&#x76D1;&#x6D4B;&#x7CFB;&#x7EDF;&#x7684;&#x7CFB;&#x7EDF;&#x7ED3;&#x6784;&#x56FE;&#xFF1A;</p>
+<p><img src="images/intro24.jpg" alt></p>
+<p>&#x7CFB;&#x7EDF;&#x67B6;&#x6784;&#x5B9E;&#x73B0;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
+<ol>
+<li>&#x539F;&#x6570;&#x636E;&#x5E93;&#x670D;&#x52A1;&#x5668;&#x914D;&#x7F6E;&#xFF1A;HP&#x5C0F;&#x578B;&#x673A;&#xFF0C;128G&#x5185;&#x5B58;&#xFF0C;48&#x9897;CPU&#xFF0C;2&#x8282;&#x70B9;RAC&#xFF0C;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7528;&#x4E8E;&#x5165;&#x5E93;&#xFF0C;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7528;&#x4E8E;&#x67E5;&#x8BE2;</li>
+<li>&#x5B58;&#x50A8;&#xFF1A;HP&#x865A;&#x62DF;&#x5316;&#x5B58;&#x50A8;&#xFF0C;&gt;1000&#x4E2A;&#x76D8;</li>
+<li>&#x6570;&#x636E;&#x5E93;&#x67B6;&#x6784;&#x91C7;&#x7528;Oracle&#x53CC;&#x8282;&#x70B9;RAC</li>
+<li>&#x95EE;&#x9898;&#xFF1A;1&#x5165;&#x5E93;&#x74F6;&#x9888;&#xFF0C;2&#x67E5;&#x8BE2;&#x74F6;&#x9888;</li>
+</ol>
+<p>&#x6570;&#x636E;&#x5206;&#x6790;&#x8005;&#x9762;&#x4E34;&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
+<ol>
+<li>&#x6570;&#x636E;&#x65E5;&#x8D8B;&#x5E9E;&#x5927;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x5165;&#x5E93;&#x548C;&#x67E5;&#x8BE2;&#xFF0C;&#x90FD;&#x51FA;&#x73B0;&#x6027;&#x80FD;&#x74F6;&#x9888;</li>
+<li>&#x7528;&#x6237;&#x7684;&#x5E94;&#x7528;&#x548C;&#x5206;&#x6790;&#x7ED3;&#x679C;&#x5448;&#x6574;&#x5408;&#x8D8B;&#x52BF;&#xFF0C;&#x5BF9;&#x5B9E;&#x65F6;&#x6027;&#x548C;&#x54CD;&#x5E94;&#x65F6;&#x95F4;&#x8981;&#x6C42;&#x8D8A;&#x6765;&#x8D8A;&#x9AD8;</li>
+<li>&#x4F7F;&#x7528;&#x7684;&#x6A21;&#x578B;&#x8D8A;&#x6765;&#x8D8A;&#x590D;&#x6742;&#xFF0C;&#x8BA1;&#x7B97;&#x91CF;&#x6307;&#x6570;&#x7EA7;&#x4E0A;&#x5347;</li>
+</ol>
+<p>&#x6570;&#x636E;&#x5206;&#x6790;&#x8005;&#x671F;&#x5F85;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</p>
+<ol>
+<li>&#x5B8C;&#x7F8E;&#x89E3;&#x51B3;&#x6027;&#x80FD;&#x74F6;&#x9888;&#xFF0C;&#x5728;&#x53EF;&#x89C1;&#x672A;&#x6765;&#x4E0D;&#x5BB9;&#x6613;&#x51FA;&#x73B0;&#x65B0;&#x74F6;&#x9888;</li>
+<li>&#x8FC7;&#x53BB;&#x6240;&#x62E5;&#x6709;&#x7684;&#x6280;&#x80FD;&#x53EF;&#x4EE5;&#x5E73;&#x7A33;&#x8FC7;&#x6E21;&#x3002;&#x6BD4;&#x5982;SQL&#x3001;R</li>
+<li>&#x8F6C;&#x79FB;&#x5E73;&#x53F0;&#x7684;&#x6210;&#x672C;&#x6709;&#x591A;&#x9AD8;&#xFF1F;&#x5E73;&#x53F0;&#x8F6F;&#x786C;&#x4EF6;&#x6210;&#x672C;&#xFF0C;&#x518D;&#x5F00;&#x53D1;&#x6210;&#x672C;&#xFF0C;&#x6280;&#x80FD;&#x518D;&#x57F9;&#x517B;&#x6210;&#x672C;&#xFF0C;&#x7EF4;&#x62A4;&#x6210;&#x672C;</li>
+</ol>
+<p>Hadoop&#x7684;&#x601D;&#x60F3;&#x5F15;&#x5165;&#xFF1A;</p>
+<p><img src="images/intro25.jpg" alt></p>
+<h2 class="mume-header" id="15-why-not-hadoop">1.5 Why not Hadoop&#xFF1F;</h2>
+
+<p>&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x5168;&#x9762;&#x90E8;&#x7F72;Hadoop&#x5462;&#xFF1F;</p>
+<ol>
+<li>Java&#xFF1F;</li>
+<li>&#x96BE;&#x4EE5;&#x9A7E;&#x9A6D;&#xFF1F;</li>
+<li>&#x6570;&#x636E;&#x96C6;&#x6210;&#x56F0;&#x96BE;&#xFF1F;</li>
+<li>Hadoop vs Oracle</li>
+</ol>
+<p>Hadoop&#x4F53;&#x7CFB;&#x4E0B;&#x7684;&#x5206;&#x6790;&#x624B;&#x6BB5;&#x5305;&#x62EC;&#xFF1A;</p>
+<ol>
+<li>&#x4E3B;&#x6D41;&#xFF1A;Java&#x7A0B;&#x5E8F;</li>
+<li>&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF1A;Pig</li>
+<li>SQL&#x6280;&#x5DE7;&#x5E73;&#x7A33;&#x8FC7;&#x6E21;&#xFF1A;Hive</li>
+<li>NoSQL&#xFF1A;HBase</li>
+</ol>
+<h2 class="mume-header" id="16-%E5%85%B8%E5%9E%8B%E7%9A%84%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83">1.6 &#x5178;&#x578B;&#x7684;&#x5B9E;&#x9A8C;&#x73AF;&#x5883;</h2>
+
+<p>&#x5178;&#x578B;&#x7684;Hadoop&#x5B9E;&#x9A8C;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#x53EF;&#x91C7;&#x7528;&#x5982;&#x4E0B;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#xFF1A;</p>
+<ol>
+<li>&#x670D;&#x52A1;&#x5668;&#xFF1A;ESXi&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4E0A;&#x9762;&#x90E8;&#x7F72;10&#x591A;&#x53F0;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x80FD;&#x540C;&#x65F6;&#x542F;&#x52A8;4&#x53F0;</li>
+<li>PC&#xFF1A;&#x8981;&#x6C42;linux&#x73AF;&#x5883;&#x6216;windows+Cygwin&#xFF0C;linux&#x53EF;&#x4EE5;&#x662F;standalone&#x6216;&#x8005;&#x4F7F;&#x7528;&#x865A;&#x62DF;&#x673A;</li>
+<li>SSH&#xFF1A;windows&#x4E0B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;SecureCRT&#x6216;putty&#x7B49;ssh client&#x7A0B;&#x5E8F;&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x7528;&#x6765;&#x8FDC;&#x7A0B;&#x8FDE;&#x63A5;linux&#x670D;&#x52A1;&#x5668;&#xFF0C;linux&#x4E0B;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;ssh&#x547D;&#x4EE4;</li>
+<li>Vmware client&#xFF1A;&#x7528;&#x4E8E;&#x7BA1;&#x7406;ESXi</li>
+<li>Hadoop&#xFF1A;&#x4F7F;&#x7528;2.7.5</li>
+</ol>
+<h2 class="mume-header" id="17-%E6%9C%AC%E5%AD%A6%E6%9C%9F%E4%BB%BB%E5%8A%A1">1.7 &#x672C;&#x5B66;&#x671F;&#x4EFB;&#x52A1;</h2>
+
+<ol>
+<li>&#x642D;&#x5EFA;Hadoop&#x96C6;&#x7FA4;&#xFF08;&#x5355;&#x673A;&#x6A21;&#x5F0F;&#xFF0C;&#x4F2A;&#x5206;&#x5E03;&#x6A21;&#x5F0F;&#xFF0C;&#x96C6;&#x7FA4;&#x6A21;&#x5F0F;&#xFF09;</li>
+<li>&#x642D;&#x5EFA;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x73AF;&#x5883;</li>
+<li>&#x7ECF;&#x5178;&#x7B97;&#x6CD5;&#x7684;&#x7F16;&#x7A0B;&#x5B9E;&#x8DF5;</li>
+</ol>
+<h2 class="mume-header" id="18-%E8%80%83%E6%A0%B8%E6%96%B9%E5%BC%8F">1.8 &#x8003;&#x6838;&#x65B9;&#x5F0F;</h2>
+
+<ol>
+<li>&#x5E73;&#x65F6;30&#x5206;&#xFF08;&#x51FA;&#x52E4;&#xFF0C;&#x4E0D;&#x6765;&#x5C31;&#x6263;&#x5206;&#xFF09;</li>
+<li>&#x7EFC;&#x5408;&#x6027;&#x8BBE;&#x8BA1;&#x6027;&#x5B9E;&#x9A8C;&#x62A5;&#x544A;30&#x5206;&#xFF08;&#x7B97;&#x6CD5;&#x8BC4;&#x5206;&#xFF09;</li>
+<li>MapReduce&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x8BC4;&#x4EF7;&#xFF08;40&#xFF09;</li>
+</ol>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E7%AC%AC1%E7%AB%A0-%E7%BB%AA%E8%AE%BA">&#x7B2C;1&#x7AE0; &#x7EEA;&#x8BBA;</a>
+<ul>
+<li><a href="#11-%E4%B8%BA%E4%BB%80%E4%B9%88">1.1 &#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</a>
+<ul>
+<li><a href="#111-%E5%A4%A7%E9%87%8F%E7%9A%84%E7%BD%91%E9%A1%B5%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8">1.1.1 &#x5927;&#x91CF;&#x7684;&#x7F51;&#x9875;&#x5982;&#x4F55;&#x5B58;&#x50A8;&#xFF1F;</a></li>
+<li><a href="#112-%E5%A6%82%E4%BD%95%E6%90%9C%E7%B4%A2%E7%BD%91%E9%A1%B5">1.1.2 &#x5982;&#x4F55;&#x641C;&#x7D22;&#x7F51;&#x9875;&#xFF1F;</a></li>
+<li><a href="#113-page-rank%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E7%BD%91%E9%A1%B5%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7">1.1.3 Page Rank&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x7F51;&#x9875;&#x7684;&#x91CD;&#x8981;&#x6027;</a></li>
+</ul>
+</li>
+<li><a href="#12-hadoop%E7%9A%84%E6%BA%90%E8%B5%B7">1.2 Hadoop&#x7684;&#x6E90;&#x8D77;</a></li>
+<li><a href="#13-hadoop%E7%9A%84%E6%9E%B6%E6%9E%84">1.3 Hadoop&#x7684;&#x67B6;&#x6784;</a>
+<ul>
+<li><a href="#131-namenode">1.3.1 Namenode</a></li>
+<li><a href="#132-secondary-namenode">1.3.2 Secondary Namenode</a></li>
+<li><a href="#133-datanode">1.3.3 DataNode</a></li>
+<li><a href="#134-jobtracker">1.3.4 JobTracker</a></li>
+<li><a href="#135-tasktracker">1.3.5 TaskTracker</a></li>
+<li><a href="#136-master%E4%B8%8Eslave">1.3.6 Master&#x4E0E;Slave</a></li>
+</ul>
+</li>
+<li><a href="#14-why-hadoop">1.4 Why hadoop&#xFF1F;</a></li>
+<li><a href="#15-why-not-hadoop">1.5 Why not Hadoop&#xFF1F;</a></li>
+<li><a href="#16-%E5%85%B8%E5%9E%8B%E7%9A%84%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83">1.6 &#x5178;&#x578B;&#x7684;&#x5B9E;&#x9A8C;&#x73AF;&#x5883;</a></li>
+<li><a href="#17-%E6%9C%AC%E5%AD%A6%E6%9C%9F%E4%BB%BB%E5%8A%A1">1.7 &#x672C;&#x5B66;&#x671F;&#x4EFB;&#x52A1;</a></li>
+<li><a href="#18-%E8%80%83%E6%A0%B8%E6%96%B9%E5%BC%8F">1.8 &#x8003;&#x6838;&#x65B9;&#x5F0F;</a></li>
+</ul>
+</li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

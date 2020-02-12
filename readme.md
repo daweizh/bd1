@@ -2,13 +2,12 @@
 
 ## 大数据编程基础
 
-<!--
 <table style="border:0px;width:100%;">
   <tr>
     <th style="border:0px;width:20px;">1.</th>
     <th style="border:0px;text-align:left;">学习C++算法编程的</th>
     <td style="border:0px;text-align:right;">
-      <a href="handout/" target="_blank">讲义</a>
+      <a href="2020/" target="_blank">讲义</a>
     </td>
   </tr>
   <tr>
@@ -27,7 +26,6 @@
     </td>
   </tr>
 </table>
- -->
 
 <!-- 
 - 还为大家准备了.....................<a href="race/" target="_blank">NOIP真题及数据</a>
