@@ -3,12 +3,13 @@
 ## 大数据编程基础
 
 1. 课程讲义
-    1. 第01讲 [简介](2020/01/intro.html)
-    2. 第02讲 [基础环境准备](2020/02/base-env.html)
+    - 第01讲 [简介](2020/01/intro.html)
+    - 第02讲 [基础环境准备](2020/02/base-env.html)
 2. [软件工具](https://pan.baidu.com/s/1b2hb8Of9fKAWzHx8ayllPw)
     - putty-0.73-installer.msi [官网](https://putty.en.softonic.com/)
 
-
+    - VMware-workstation-full-15.5.1-15018445.exe [官网](https://www.vmware.com/cn/products/workstation-pro.html)
+    - [官网](https://ubuntu.com/)
 <table style="border:0px;font-size:12px;">
   <tr>
     <td style="border:0px;"> <img src="assets/me/img/zdw.jpg" width="100"> </td>
