@@ -1,0 +1,1287 @@
+<!DOCTYPE html><html><head>
+      <title>clust</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+      
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+      <link rel="stylesheet" href="../../assets/me/css/code.css">
+      <script type="text/javascript" src="http://tajs.qq.com/stats?sId=66519569" charset="UTF-8"></script>
+      <script type="text/javascript" src="../../assets/me/js/code.js" charset="UTF-8"></script>      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E7%AC%AC6%E7%AB%A0-hadoop%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2">&#x7B2C;6&#x7AE0; Hadoop&#x96C6;&#x7FA4;&#x90E8;&#x7F72;</h1>
+
+<h2 class="mume-header" id="61-%E5%A4%8D%E5%88%B6vmware%E8%99%9A%E6%8B%9F%E6%9C%BA">6.1 &#x590D;&#x5236;VMware&#x865A;&#x62DF;&#x673A;</h2>
+
+<p>&#x590D;&#x5236;&#x5DF2;&#x7ECF;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x7684;&#x4F2A;&#x5206;&#x5E03;&#x865A;&#x62DF;&#x673A;&#x76EE;&#x5F55;node&#x5230;node1&#x548C;node2&#x3002;&#x4FEE;&#x6539;&#x6700;&#x521D;&#x865A;&#x62DF;&#x673A;&#x76EE;&#x5F55;node&#x4E3A;node0&#x3002;</p>
+<ol>
+<li>&#x590D;&#x5236;&#x5B8C;&#x6210;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;<br>
+<img src="images/clust-01.png" alt></li>
+<li>&#x5206;&#x522B;&#x6253;&#x5F00;&#x865A;&#x62DF;&#x673A;node0,node1&#x548C;node2&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;<br>
+<img src="images/clust-02.png" alt></li>
+<li>&#x9009;&#x62E9;&#x5177;&#x4F53;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x7684;node.vmx&#x865A;&#x62DF;&#x673A;&#xFF1A;<br>
+<img src="images/clust-03.png" alt></li>
+<li>&#x6253;&#x5F00;&#x540E;&#x7684;&#x865A;&#x62DF;&#x673A;&#x540D;&#x79F0;&#x9700;&#x8981;&#x6839;&#x636E;&#x6587;&#x4EF6;&#x5939;&#x540D;&#x79F0;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x5E76;&#x521B;&#x5EFA;&#x96C6;&#x7FA4;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5C06;&#x5176;&#x653E;&#x5165;&#x5176;&#x4E2D;&#xFF1A;<br>
+<img src="images/clust-04.png" alt></li>
+<li>&#x6700;&#x540E;&#x5F62;&#x6210;&#x7684;hadoop&#x96C6;&#x7FA4;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x5305;&#x62EC;node0,node1&#x548C;node2&#x4E09;&#x4E2A;&#x8282;&#x70B9;&#xFF1A;<br>
+<img src="images/clust-05.png" alt></li>
+</ol>
+<h2 class="mume-header" id="62-%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C">6.2 &#x914D;&#x7F6E;&#x7F51;&#x7EDC;</h2>
+
+<h3 class="mume-header" id="621-node0">6.2.1 node0</h3>
+
+<ol>
+<li>&#x5141;&#x8BB8;&#x4FEE;&#x6539;&#x4E3B;&#x673A;&#x540D;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/cloud/cloud.cfg
+
+preserve_hostname: <span class="token boolean">true</span>
+</pre></li>
+<li>&#x4FEE;&#x6539;&#x4E3B;&#x673A;&#x540D;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/hostname
+
+node0
+</pre></li>
+<li>&#x91CD;&#x65B0;&#x542F;&#x52A8;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">reboot</span>
+</pre></li>
+<li>&#x67E5;&#x770B;&#x7F51;&#x5361;&#x4FE1;&#x606F;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">ifconfig</span>
+
+ens33: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
+</pre></li>
+<li>&#x914D;&#x7F6E;IP&#x5730;&#x5740;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/netplan/50-cloud-init.yaml
+
+network:
+    ethernets:
+        ens33:
+            addresses: <span class="token punctuation">[</span>192.168.1.251/24<span class="token punctuation">]</span>
+            gateway4: 192.168.1.254
+            dhcp4: <span class="token boolean">true</span>
+            optional: <span class="token boolean">true</span>
+    version: 2
+</pre></li>
+<li>&#x6267;&#x884C;&#x7F51;&#x5361;&#x914D;&#x7F6E;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> netplan apply
+</pre></li>
+<li>&#x67E5;&#x770B;&#x7F51;&#x5361;&#x4FE1;&#x606F;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">ifconfig</span>
+
+ens33: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
+        inet 192.168.1.251  netmask 255.255.255.0  broadcast 192.168.1.255
+</pre></li>
+<li>&#x914D;&#x7F6E;&#x672C;&#x5730;&#x57DF;&#x540D;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/hosts
+
+127.0.0.1       localhost.localdomain   localhost
+::1             localhost6.localdomain6 localhost6
+
+192.168.1.251   node0
+192.168.1.252   node1
+192.168.1.253   node2
+
+<span class="token comment"># The following lines are desirable for IPv6 capable hosts</span>
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+</pre></li>
+<li>&#x914D;&#x7F6E;DNS&#x89E3;&#x6790;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/systemd/resolved.conf
+
+<span class="token punctuation">[</span>Resolve<span class="token punctuation">]</span>
+DNS<span class="token operator">=</span>210.47.208.6 114.114.114.114
+<span class="token comment">#FallbackDNS=</span>
+<span class="token comment">#Domains=</span>
+<span class="token comment">#LLMNR=no</span>
+<span class="token comment">#MulticastDNS=no</span>
+<span class="token comment">#DNSSEC=no</span>
+<span class="token comment">#Cache=yes</span>
+<span class="token comment">#DNSStubListener=yes</span>
+</pre></li>
+<li>&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x7CFB;&#x7EDF;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">reboot</span>
+</pre></li>
+<li>&#x68C0;&#x67E5;&#x57DF;&#x540D;&#x89E3;&#x6790;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">ping</span> www.lnnu.edu.cn
+
+PING www.lnnu.edu.cn <span class="token punctuation">(</span>210.47.208.201<span class="token punctuation">)</span> 56<span class="token punctuation">(</span>84<span class="token punctuation">)</span> bytes of data.
+64 bytes from 210.47.208.201 <span class="token punctuation">(</span>210.47.208.201<span class="token punctuation">)</span>: icmp_seq<span class="token operator">=</span>1 ttl<span class="token operator">=</span>60 time<span class="token operator">=</span>1.22 ms
+64 bytes from 210.47.208.201 <span class="token punctuation">(</span>210.47.208.201<span class="token punctuation">)</span>: icmp_seq<span class="token operator">=</span>2 ttl<span class="token operator">=</span>60 time<span class="token operator">=</span>1.88 ms
+64 bytes from 210.47.208.201 <span class="token punctuation">(</span>210.47.208.201<span class="token punctuation">)</span>: icmp_seq<span class="token operator">=</span>3 ttl<span class="token operator">=</span>60 time<span class="token operator">=</span>1.61 ms
+^C
+--- www.lnnu.edu.cn <span class="token function">ping</span> statistics ---
+3 packets transmitted, 3 received, 0% packet loss, <span class="token function">time</span> 2003ms
+rtt min/avg/max/mdev <span class="token operator">=</span> 1.223/1.573/1.884/0.273 ms
+
+$ <span class="token function">ping</span> node1   
+$ <span class="token function">ping</span> node2
+</pre></li>
+</ol>
+<h3 class="mume-header" id="622-node1">6.2.2 node1</h3>
+
+<ol>
+<li>&#x5141;&#x8BB8;&#x4FEE;&#x6539;&#x4E3B;&#x673A;&#x540D;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/cloud/cloud.cfg
+
+preserve_hostname: <span class="token boolean">true</span>
+</pre></li>
+<li>&#x4FEE;&#x6539;&#x4E3B;&#x673A;&#x540D;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/hostname
+
+node1
+</pre></li>
+<li>&#x91CD;&#x65B0;&#x542F;&#x52A8;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">reboot</span>
+</pre></li>
+<li>&#x67E5;&#x770B;&#x7F51;&#x5361;&#x4FE1;&#x606F;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">ifconfig</span>
+
+ens33: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
+</pre></li>
+<li>&#x914D;&#x7F6E;IP&#x5730;&#x5740;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/netplan/50-cloud-init.yaml
+
+network:
+    ethernets:
+        ens33:
+            addresses: <span class="token punctuation">[</span>192.168.1.252/24<span class="token punctuation">]</span>
+            gateway4: 192.168.1.254
+            dhcp4: <span class="token boolean">true</span>
+            optional: <span class="token boolean">true</span>
+    version: 2
+</pre></li>
+<li>&#x6267;&#x884C;&#x7F51;&#x5361;&#x914D;&#x7F6E;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> netplan apply
+</pre></li>
+<li>&#x67E5;&#x770B;&#x7F51;&#x5361;&#x4FE1;&#x606F;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">ifconfig</span>
+
+ens33: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
+        inet 192.168.1.252  netmask 255.255.255.0  broadcast 192.168.1.255
+</pre></li>
+<li>&#x914D;&#x7F6E;&#x672C;&#x5730;&#x57DF;&#x540D;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/hosts
+
+127.0.0.1       localhost.localdomain   localhost
+::1             localhost6.localdomain6 localhost6
+
+192.168.1.251   node0
+192.168.1.252   node1
+192.168.1.253   node2
+
+<span class="token comment"># The following lines are desirable for IPv6 capable hosts</span>
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+</pre></li>
+<li>&#x914D;&#x7F6E;DNS&#x89E3;&#x6790;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/systemd/resolved.conf
+
+<span class="token punctuation">[</span>Resolve<span class="token punctuation">]</span>
+DNS<span class="token operator">=</span>210.47.208.6 114.114.114.114
+<span class="token comment">#FallbackDNS=</span>
+<span class="token comment">#Domains=</span>
+<span class="token comment">#LLMNR=no</span>
+<span class="token comment">#MulticastDNS=no</span>
+<span class="token comment">#DNSSEC=no</span>
+<span class="token comment">#Cache=yes</span>
+<span class="token comment">#DNSStubListener=yes</span>
+</pre></li>
+<li>&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x7CFB;&#x7EDF;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">reboot</span>
+</pre></li>
+<li>&#x68C0;&#x67E5;&#x57DF;&#x540D;&#x89E3;&#x6790;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">ping</span> www.lnnu.edu.cn
+
+PING www.lnnu.edu.cn <span class="token punctuation">(</span>210.47.208.201<span class="token punctuation">)</span> 56<span class="token punctuation">(</span>84<span class="token punctuation">)</span> bytes of data.
+64 bytes from 210.47.208.201 <span class="token punctuation">(</span>210.47.208.201<span class="token punctuation">)</span>: icmp_seq<span class="token operator">=</span>1 ttl<span class="token operator">=</span>60 time<span class="token operator">=</span>1.22 ms
+64 bytes from 210.47.208.201 <span class="token punctuation">(</span>210.47.208.201<span class="token punctuation">)</span>: icmp_seq<span class="token operator">=</span>2 ttl<span class="token operator">=</span>60 time<span class="token operator">=</span>1.88 ms
+64 bytes from 210.47.208.201 <span class="token punctuation">(</span>210.47.208.201<span class="token punctuation">)</span>: icmp_seq<span class="token operator">=</span>3 ttl<span class="token operator">=</span>60 time<span class="token operator">=</span>1.61 ms
+^C
+--- www.lnnu.edu.cn <span class="token function">ping</span> statistics ---
+3 packets transmitted, 3 received, 0% packet loss, <span class="token function">time</span> 2003ms
+rtt min/avg/max/mdev <span class="token operator">=</span> 1.223/1.573/1.884/0.273 ms
+
+$ <span class="token function">ping</span> node0   
+$ <span class="token function">ping</span> node2
+</pre></li>
+</ol>
+<h3 class="mume-header" id="623-node2">6.2.3 node2</h3>
+
+<ol>
+<li>&#x5141;&#x8BB8;&#x4FEE;&#x6539;&#x4E3B;&#x673A;&#x540D;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/cloud/cloud.cfg
+
+preserve_hostname: <span class="token boolean">true</span>
+</pre></li>
+<li>&#x4FEE;&#x6539;&#x4E3B;&#x673A;&#x540D;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/hostname
+
+node2
+</pre></li>
+<li>&#x91CD;&#x65B0;&#x542F;&#x52A8;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">reboot</span>
+</pre></li>
+<li>&#x67E5;&#x770B;&#x7F51;&#x5361;&#x4FE1;&#x606F;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">ifconfig</span>
+
+ens33: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
+</pre></li>
+<li>&#x914D;&#x7F6E;IP&#x5730;&#x5740;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/netplan/50-cloud-init.yaml
+
+network:
+    ethernets:
+        ens33:
+            addresses: <span class="token punctuation">[</span>192.168.1.253/24<span class="token punctuation">]</span>
+            gateway4: 192.168.1.254
+            dhcp4: <span class="token boolean">true</span>
+            optional: <span class="token boolean">true</span>
+    version: 2
+</pre></li>
+<li>&#x6267;&#x884C;&#x7F51;&#x5361;&#x914D;&#x7F6E;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> netplan apply
+</pre></li>
+<li>&#x67E5;&#x770B;&#x7F51;&#x5361;&#x4FE1;&#x606F;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">ifconfig</span>
+
+ens33: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
+        inet 192.168.1.253  netmask 255.255.255.0  broadcast 192.168.1.255
+</pre></li>
+<li>&#x914D;&#x7F6E;&#x672C;&#x5730;&#x57DF;&#x540D;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/hosts
+
+127.0.0.1       localhost.localdomain   localhost
+::1             localhost6.localdomain6 localhost6
+
+192.168.1.251   node0
+192.168.1.252   node1
+192.168.1.253   node2
+
+<span class="token comment"># The following lines are desirable for IPv6 capable hosts</span>
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+</pre></li>
+<li>&#x914D;&#x7F6E;DNS&#x89E3;&#x6790;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/systemd/resolved.conf
+
+<span class="token punctuation">[</span>Resolve<span class="token punctuation">]</span>
+DNS<span class="token operator">=</span>210.47.208.6 114.114.114.114
+<span class="token comment">#FallbackDNS=</span>
+<span class="token comment">#Domains=</span>
+<span class="token comment">#LLMNR=no</span>
+<span class="token comment">#MulticastDNS=no</span>
+<span class="token comment">#DNSSEC=no</span>
+<span class="token comment">#Cache=yes</span>
+<span class="token comment">#DNSStubListener=yes</span>
+</pre></li>
+<li>&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x7CFB;&#x7EDF;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">reboot</span>
+</pre></li>
+<li>&#x68C0;&#x67E5;&#x57DF;&#x540D;&#x89E3;&#x6790;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">ping</span> www.lnnu.edu.cn
+
+PING www.lnnu.edu.cn <span class="token punctuation">(</span>210.47.208.201<span class="token punctuation">)</span> 56<span class="token punctuation">(</span>84<span class="token punctuation">)</span> bytes of data.
+64 bytes from 210.47.208.201 <span class="token punctuation">(</span>210.47.208.201<span class="token punctuation">)</span>: icmp_seq<span class="token operator">=</span>1 ttl<span class="token operator">=</span>60 time<span class="token operator">=</span>1.22 ms
+64 bytes from 210.47.208.201 <span class="token punctuation">(</span>210.47.208.201<span class="token punctuation">)</span>: icmp_seq<span class="token operator">=</span>2 ttl<span class="token operator">=</span>60 time<span class="token operator">=</span>1.88 ms
+64 bytes from 210.47.208.201 <span class="token punctuation">(</span>210.47.208.201<span class="token punctuation">)</span>: icmp_seq<span class="token operator">=</span>3 ttl<span class="token operator">=</span>60 time<span class="token operator">=</span>1.61 ms
+^C
+--- www.lnnu.edu.cn <span class="token function">ping</span> statistics ---
+3 packets transmitted, 3 received, 0% packet loss, <span class="token function">time</span> 2003ms
+rtt min/avg/max/mdev <span class="token operator">=</span> 1.223/1.573/1.884/0.273 ms
+
+$ <span class="token function">ping</span> node0   
+$ <span class="token function">ping</span> node1
+</pre></li>
+</ol>
+<h2 class="mume-header" id="63-ssh%E5%85%8D%E5%AF%86%E7%A0%81%E8%AE%BE%E7%BD%AE">6.3 ssh&#x514D;&#x5BC6;&#x7801;&#x8BBE;&#x7F6E;</h2>
+
+<h3 class="mume-header" id="631-node0">6.3.1 node0</h3>
+
+<ol>
+<li>&#x91CD;&#x65B0;&#x751F;&#x6210;ssh&#x79D8;&#x94A5;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ ssh-keygen -t rsa -P <span class="token string">&apos;&apos;</span> -f ~/.ssh/id_rsa
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Overwrite <span class="token punctuation">(</span>y/n<span class="token punctuation">)</span>? y
+<span class="token punctuation">..</span>.
+</pre></li>
+<li>&#x67E5;&#x770B;&#x751F;&#x6210;&#x7684;&#x516C;&#x94A5;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ ssh-keygen -y -f ~/.ssh/id_rsa
+
+ssh-rsa <span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+</pre></li>
+<li>&#x751F;&#x6210;&#x516C;&#x5171;&#x516C;&#x94A5;&#x6587;&#x4EF6;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">cat</span> ~/.ssh/id_rsa.pub <span class="token operator">&gt;</span> ~/.ssh/authorized_keys   
+$ <span class="token function">cat</span> ~/.ssh/authorized_keys
+
+ssh-rsa <span class="token punctuation">..</span><span class="token punctuation">..</span> <span class="token punctuation">..</span>. jack@node0
+</pre></li>
+</ol>
+<h3 class="mume-header" id="632-node1">6.3.2 node1</h3>
+
+<ol>
+<li>&#x91CD;&#x65B0;&#x751F;&#x6210;SSH&#x79D8;&#x94A5;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ ssh-keygen -t rsa -P <span class="token string">&apos;&apos;</span> -f ~/.ssh/id_rsa
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Overwrite <span class="token punctuation">(</span>y/n<span class="token punctuation">)</span>? y
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+</pre></li>
+<li>&#x67E5;&#x770B;&#x516C;&#x94A5;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ ssh-keygen -y -f ~/.ssh/id_rsa
+
+ssh-rsa <span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+</pre></li>
+<li>&#x8FFD;&#x52A0;&#x516C;&#x94A5;&#x5230;&#x516C;&#x5171;&#x516C;&#x94A5;&#x6587;&#x4EF6;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">cat</span> ~/.ssh/id_rsa.pub <span class="token operator">|</span> <span class="token function">ssh</span> node0 <span class="token string">&apos;cat -&gt;&gt; /home/jack/.ssh/authorized_keys&apos;</span>
+
+Warning: Permanently added the ECDSA <span class="token function">host</span> key <span class="token keyword">for</span> IP address <span class="token string">&apos;192.168.1.251&apos;</span> to the list of known hosts.
+jack@node0&apos;s password:
+jack@node1:~$
+</pre></li>
+</ol>
+<h3 class="mume-header" id="633-node2">6.3.3 node2</h3>
+
+<ol>
+<li>&#x91CD;&#x65B0;&#x751F;&#x6210;SSH&#x79D8;&#x94A5;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ ssh-keygen -t rsa -P <span class="token string">&apos;&apos;</span> -f ~/.ssh/id_rsa
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Overwrite <span class="token punctuation">(</span>y/n<span class="token punctuation">)</span>? y
+<span class="token punctuation">..</span>.
+</pre></li>
+<li>&#x67E5;&#x770B;&#x751F;&#x6210;&#x7684;&#x516C;&#x94A5;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ ssh-keygen -y -f ~/.ssh/id_rsa
+
+ssh-rsa <span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+</pre></li>
+<li>&#x8FFD;&#x52A0;&#x516C;&#x94A5;&#x5230;&#x516C;&#x5171;&#x516C;&#x94A5;&#x6587;&#x4EF6;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">cat</span> ~/.ssh/id_rsa.pub <span class="token operator">|</span> <span class="token function">ssh</span> node0 <span class="token string">&apos;cat -&gt;&gt; /home/jack/.ssh/authorized_keys&apos;</span>
+
+Warning: Permanently added the ECDSA <span class="token function">host</span> key <span class="token keyword">for</span> IP address <span class="token string">&apos;192.168.1.251&apos;</span> to the list of known hosts.
+jack@node0&apos;s password:
+jack@node2:~$
+</pre></li>
+</ol>
+<h3 class="mume-header" id="634-%E5%A4%8D%E5%88%B6%E5%85%AC%E9%92%A5%E5%88%B0%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9">6.3.4 &#x590D;&#x5236;&#x516C;&#x94A5;&#x5230;&#x5404;&#x4E2A;&#x8282;&#x70B9;</h3>
+
+<ol>
+<li>&#x67E5;&#x770B;node0&#x516C;&#x5171;&#x516C;&#x94A5;&#x6587;&#x4EF6;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">cat</span> ~/.ssh/authorized_keys
+
+ssh-rsa <span class="token punctuation">..</span>. <span class="token punctuation">..</span>. jack@node0
+ssh-rsa <span class="token punctuation">..</span>. <span class="token punctuation">..</span>. jack@node1
+ssh-rsa <span class="token punctuation">..</span>. <span class="token punctuation">..</span>. jack@node2
+</pre></li>
+<li>&#x590D;&#x5236;&#x516C;&#x5171;&#x516C;&#x94A5;&#x5230;node1<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">scp</span> /home/jack/.ssh/authorized_keys node1:/home/jack/.ssh/
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Are you sure you want to <span class="token keyword">continue</span> connecting <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span>? <span class="token function">yes</span>
+Warning: Permanently added <span class="token string">&apos;node1&apos;</span> <span class="token punctuation">(</span>ECDSA<span class="token punctuation">)</span> to the list of known hosts.
+jack@node1&apos;s password:
+authorized_keys                               100% 1176   917.1KB/s   00:00
+jack@node0:~$
+</pre></li>
+<li>&#x590D;&#x5236;&#x516C;&#x5171;&#x516C;&#x94A5;&#x5230;node2<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">scp</span> /home/jack/.ssh/authorized_keys node2:/home/jack/.ssh/
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Are you sure you want to <span class="token keyword">continue</span> connecting <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span>? <span class="token function">yes</span>
+Warning: Permanently added <span class="token string">&apos;node2,192.168.1.253&apos;</span> <span class="token punctuation">(</span>ECDSA<span class="token punctuation">)</span> to the list of known hosts.
+jack@node2&apos;s password:
+authorized_keys                               100% 1176     1.4MB/s   00:00
+jack@node0:~$
+</pre></li>
+</ol>
+<h3 class="mume-header" id="635-%E6%9F%A5%E7%9C%8B%E5%90%84%E8%8A%82%E7%82%B9%E9%97%B4%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E6%83%85%E5%86%B5">6.3.5 &#x67E5;&#x770B;&#x5404;&#x8282;&#x70B9;&#x95F4;&#x514D;&#x5BC6;&#x7801;&#x767B;&#x5F55;&#x60C5;&#x51B5;</h3>
+
+<ol>
+<li>node0&#x5230;node1&#x548C;node2&#x514D;&#x5BC6;&#x7801;&#x6D4B;&#x8BD5;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ <span class="token function">ssh</span> node1
+
+Welcome to Ubuntu 18.04.2 LTS <span class="token punctuation">(</span>GNU/Linux 4.15.0-46-generic x86_64<span class="token punctuation">)</span>
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Last login: Wed Mar 20 03:06:01 2019 from 192.168.1.103
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node1:~$ <span class="token keyword">exit</span>
+
+<span class="token function">logout</span>
+Connection to node1 closed.
+jack@node0:~$
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ <span class="token function">ssh</span> node2
+
+Welcome to Ubuntu 18.04.2 LTS <span class="token punctuation">(</span>GNU/Linux 4.15.0-46-generic x86_64<span class="token punctuation">)</span>
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Last login: Wed Mar 20 04:52:56 2019 from 192.168.1.251
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node2:~$ <span class="token keyword">exit</span>
+
+<span class="token function">logout</span>
+Connection to node2 closed.
+jack@node0:~$
+</pre></li>
+<li>node1&#x5230;node0&#x548C;node2&#x514D;&#x5BC6;&#x7801;&#x6D4B;&#x8BD5;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node1:~$ <span class="token function">ssh</span> node0
+
+Welcome to Ubuntu 18.04.2 LTS <span class="token punctuation">(</span>GNU/Linux 4.15.0-46-generic x86_64<span class="token punctuation">)</span>
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Last login: Wed Mar 20 03:13:25 2019 from 192.168.1.103
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ <span class="token keyword">exit</span>
+
+<span class="token function">logout</span>
+Connection to node0 closed.
+jack@node1:~$
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node1:~$ <span class="token function">ssh</span> node2
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Are you sure you want to <span class="token keyword">continue</span> connecting <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span>? <span class="token function">yes</span>
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Last login: Wed Mar 20 05:19:48 2019 from 192.168.1.251
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node2:~$ <span class="token keyword">exit</span>
+
+<span class="token function">logout</span>
+Connection to node2 closed.
+jack@node1:~$
+</pre></li>
+<li>node2&#x5230;node0&#x548C;node1&#x514D;&#x5BC6;&#x7801;&#x6D4B;&#x8BD5;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node2:~$ <span class="token function">ssh</span> node0
+
+Welcome to Ubuntu 18.04.2 LTS <span class="token punctuation">(</span>GNU/Linux 4.15.0-46-generic x86_64<span class="token punctuation">)</span>
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Last login: Wed Mar 20 05:46:49 2019 from 192.168.1.252
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ <span class="token keyword">exit</span>
+
+<span class="token function">logout</span>
+Connection to node0 closed.
+jack@node2:~$
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node2:~$ <span class="token function">ssh</span> node1
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Are you sure you want to <span class="token keyword">continue</span> connecting <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span>? <span class="token function">yes</span>
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Last login: Wed Mar 20 04:52:34 2019 from 192.168.1.251
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node1:~$ <span class="token keyword">exit</span>
+
+<span class="token function">logout</span>
+Connection to node1 closed.
+jack@node2:~$
+</pre></li>
+</ol>
+<h2 class="mume-header" id="64-hadoop%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE">6.4 Hadoop&#x96C6;&#x7FA4;&#x914D;&#x7F6E;</h2>
+
+<p>&#x5BF9;node0,node1,node2&#x8282;&#x70B9;&#x5206;&#x522B;&#x505A;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ol>
+<li>&#x590D;&#x67E5;hadoop-env.sh&#x914D;&#x7F6E;&#x60C5;&#x51B5;<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token operator">&gt;</span> $ <span class="token function">sudo</span> <span class="token function">vim</span> /usr/bd/hadoop-3.1.2/etc/hadoop/hadoop-env.sh
+</pre><pre data-role="codeBlock" data-info="bash {.line-numbers}" class="language-bash line-numbers"><span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+<span class="token comment"># The java implementation to use. By default, this environment</span>
+<span class="token comment"># variable is REQUIRED on ALL platforms except OS X!</span>
+<span class="token function">export</span> JAVA_HOME<span class="token operator">=</span>/usr/bd/jdk1.8.0_202
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+<span class="token comment"># Where (primarily) daemon log files are stored.</span>
+<span class="token comment"># ${HADOOP_HOME}/logs by default.</span>
+<span class="token comment"># Java property: hadoop.log.dir</span>
+<span class="token comment"># export HADOOP_LOG_DIR=${HADOOP_HOME}/logs</span>
+<span class="token function">export</span> HADOOP_LOG_DIR<span class="token operator">=</span>/usr/bd/logs
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
+<li>&#x4FEE;&#x6539; workers<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /usr/bd/hadoop-3.1.2/etc/hadoop/workers
+
+node0
+node1
+node2
+</pre></li>
+<li>&#x590D;&#x67E5;core-site.xml<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /usr/bd/hadoop-3.1.2/etc/hadoop/core-site.xml
+</pre><pre data-role="codeBlock" data-info="xml {.line-numbers}" class="language-xml line-numbers"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>fs.defaultFS<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>hdfs://node0:9000<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>hadoop.tmp.dir<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>/usr/bd/tmp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span>for hadoop temporary directories.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
+<li>&#x4FEE;&#x6539; hdfs-site.xml&#xFF0C;&#x6CE8;&#x610F;&#x590D;&#x5236;&#x4EFD;&#x6570;&#x4E3A;2<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /usr/bd/hadoop-3.1.2/etc/hadoop/hdfs-site.xml
+</pre><pre data-role="codeBlock" data-info="xml {.line-numbers}" class="language-xml line-numbers"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.replication<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!--  &#x6B64;&#x914D;&#x7F6E;&#x7684;&#x7F3A;&#x7701;&#x7AEF;&#x53E3;&#x4E3A;9870
+    &lt;property&gt;
+        &lt;name&gt;dfs.namenode.http-address&lt;/name&gt;
+        &lt;value&gt;node0:50070&lt;/value&gt;
+    &lt;/property&gt;
+    --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.namenode.name.dir<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>file:/usr/bd/dfs/name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.datanode.data.dir<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>file:/usr/bd/dfs/data<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.permissions<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.namenode.secondary.http-address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:9002<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.webhdfs.enabled<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
+<li>&#x590D;&#x67E5; mapred-site.xml<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /usr/bd/hadoop-3.1.2/etc/hadoop/mapred-site.xml
+</pre><pre data-role="codeBlock" data-info="xml {.line-numbers}" class="language-xml line-numbers"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.jobtracker.address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:9001<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.app.mapreduce.am.env<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>HADOOP_MAPRED_HOME=/usr/bd/hadoop-3.1.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.map.env<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>HADOOP_MAPRED_HOME=/usr/bd/hadoop-3.1.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.reduce.env<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>HADOOP_MAPRED_HOME=/usr/bd/hadoop-3.1.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.framework.name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>yarn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.jobhistory.address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:10020<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.jobhistory.webapp.address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:19888<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
+<li>&#x4FEE;&#x6539; yarn-site.xml<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /usr/bd/hadoop-3.1.2/etc/hadoop/yarn-site.xml
+</pre><pre data-role="codeBlock" data-info="xml {.line-numbers}" class="language-xml line-numbers"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- Site specific YARN configuration properties --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.nodemanager.aux-services<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>mapreduce_shuffle<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.nodemanager.vmem-check-enabled<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.nodemanager.aux-services.mapreduce.shuffle.class<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>org.apache.hadoop.mapred.ShuffleHandler<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.resourcemanager.address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:8032<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.resourcemanager.scheduler.address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:8030<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.resourcemanager.resource-tracker.address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:8035<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.resourcemanager.admin.address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:8033<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.resourcemanager.webapp.address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:8088<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
+<li>&#x6E05;&#x9664;&#x9057;&#x7559;&#x6570;&#x636E;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">rm</span> -rf /usr/bd/dfs/data/current/   
+$ <span class="token function">ls</span> /usr/bd/dfs/data   
+
+$
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">rm</span> -rf /usr/bd/dfs/name/current/   
+$ <span class="token function">ls</span> /usr/bd/dfs/name   
+
+$
+</pre></li>
+</ol>
+<h2 class="mume-header" id="65-hadoop%E9%9B%86%E7%BE%A4%E6%B5%8B%E8%AF%95">6.5 Hadoop&#x96C6;&#x7FA4;&#x6D4B;&#x8BD5;</h2>
+
+<p>&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#x5747;&#x5728;node0&#x4E0A;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ol>
+<li>&#x683C;&#x5F0F;&#x5316;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ hdfs namenode -format
+
+2019-03-20 07:03:56,515 INFO namenode.NameNode: STARTUP_MSG:
+/************************************************************
+STARTUP_MSG: Starting NameNode
+STARTUP_MSG:   <span class="token function">host</span> <span class="token operator">=</span> node0/192.168.1.251
+STARTUP_MSG:   args <span class="token operator">=</span> <span class="token punctuation">[</span>-format<span class="token punctuation">]</span>
+STARTUP_MSG:   version <span class="token operator">=</span> 3.1.2
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Re-format filesystem <span class="token keyword">in</span> Storage Directory root<span class="token operator">=</span> /usr/bd/dfs/name<span class="token punctuation">;</span> location<span class="token operator">=</span> null ? <span class="token punctuation">(</span>Y or N<span class="token punctuation">)</span> Y
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+2019-03-20 07:04:29,913 INFO namenode.NameNode: SHUTDOWN_MSG:
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at node0/192.168.1.251
+************************************************************/
+</pre></li>
+<li>&#x542F;&#x52A8;dfs&#x5E76;&#x67E5;&#x770B;&#x5404;&#x8282;&#x70B9;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ start-dfs.sh
+
+Starting namenodes on <span class="token punctuation">[</span>node0<span class="token punctuation">]</span>
+node0: Warning: Permanently added the ECDSA <span class="token function">host</span> key <span class="token keyword">for</span> IP address <span class="token string">&apos;192.168.1.251&apos;</span> to the list of known hosts.
+Starting datanodes
+Starting secondary namenodes <span class="token punctuation">[</span>node0<span class="token punctuation">]</span>
+</pre><img src="images/web-9870.png" alt><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ jps
+
+2960 NameNode
+3155 DataNode
+3399 SecondaryNameNode
+3561 Jps
+</pre><img src="images/node0-9864.png" alt><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node1:~$ jps
+
+1939 Jps
+1918 DataNode
+</pre><img src="images/node1-9864.png" alt><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node2:~$ jps
+
+1827 DataNode
+1940 Jps
+</pre><img src="images/node2-9864.png" alt></li>
+<li>&#x542F;&#x52A8;yarn<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ start-yarn.sh
+
+Starting resourcemanager
+Starting nodemanagers
+</pre><img src="images/web-8088.png" alt><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:/usr/bd/hadoop-3.1.2$ jps
+
+20534 SecondaryNameNode
+21142 Jps
+20087 NameNode
+20282 DataNode
+21020 NodeManager
+20830 ResourceManager
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node1:/usr/bd/dfs/name$ jps
+
+20225 Jps
+20102 NodeManager
+19897 DataNode
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node2:/usr/bd/dfs/name$ jps
+
+20356 Jps
+20233 NodeManager
+20030 DataNode
+</pre></li>
+<li>&#x542F;&#x52A8;historyserver<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ mr-jobhistory-daemon.sh start historyserver
+
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement <span class="token string">&quot;mapred --daemon start&quot;</span> instead.
+</pre><img src="images/web-19888.png" alt><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:/usr/bd/hadoop-3.1.2$ jps
+
+21540 Jps
+20534 SecondaryNameNode
+20087 NameNode
+21479 JobHistoryServer
+20282 DataNode
+21020 NodeManager
+20830 ResourceManager
+</pre></li>
+<li>&#x590D;&#x67E5;stopall.sh<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:/usr/bd$ <span class="token function">vim</span> hadoop-3.1.2/sbin/stopall.sh
+</pre><pre data-role="codeBlock" data-info="bash {.line-numbers}" class="language-bash line-numbers"><span class="token comment">#!/usr/bin/env bash</span>
+
+<span class="token comment"># Stop all hadoop daemons.  Run this on master node.</span>
+
+<span class="token keyword">echo</span> <span class="token string">&quot;This script is Deprecated. Instead use stop-dfs.sh and stop-yarn.sh&quot;</span>
+
+<span class="token keyword">echo</span> <span class="token string">&quot;Stoping historyserver...&quot;</span>
+mr-jobhistory-daemon.sh stop historyserver
+
+<span class="token keyword">echo</span> <span class="token string">&quot;Stoping dfs...&quot;</span>
+stop-dfs.sh
+
+<span class="token keyword">echo</span> <span class="token string">&quot;Stoping yarn...&quot;</span>
+stop-yarn.sh
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
+<li>&#x505C;&#x6B62;&#x5168;&#x90E8;Hadoop&#x8FDB;&#x7A0B;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ stopall.sh
+
+This script is Deprecated. Instead use stop-dfs.sh and stop-yarn.sh
+Stoping historyserver<span class="token punctuation">..</span>.
+WARNING: Use of this script to stop the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement <span class="token string">&quot;mapred --daemon stop&quot;</span> instead.
+Stoping dfs<span class="token punctuation">..</span>.
+Stopping namenodes on <span class="token punctuation">[</span>node0<span class="token punctuation">]</span>
+Stopping datanodes
+Stopping secondary namenodes <span class="token punctuation">[</span>node0<span class="token punctuation">]</span>
+Stoping yarn<span class="token punctuation">..</span>.
+Stopping nodemanagers
+Stopping resourcemanager
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ jps
+
+7156 Jps
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node1:~$ jps
+
+7118 Jps
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node2:~$ jps
+
+2345 Jps
+</pre></li>
+<li>&#x590D;&#x67E5;startall.sh<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:/usr/bd$ <span class="token function">vim</span> hadoop-3.1.2/sbin/startall.sh
+</pre><pre data-role="codeBlock" data-info="bash {.line-numbers}" class="language-bash line-numbers"><span class="token comment">#!/usr/bin/env bash</span>
+
+<span class="token comment"># Start all hadoop daemons.  Run this on master node.</span>
+
+<span class="token keyword">echo</span> <span class="token string">&quot;This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh&quot;</span>
+
+<span class="token keyword">echo</span> <span class="token string">&quot;Starting yarn...&quot;</span>
+start-yarn.sh
+
+<span class="token keyword">echo</span> <span class="token string">&quot;Starting dfs...&quot;</span>
+start-dfs.sh
+
+<span class="token keyword">echo</span> <span class="token string">&quot;Starting historyserver...&quot;</span>
+mr-jobhistory-daemon.sh start historyserver
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
+<li>&#x5168;&#x90E8;&#x542F;&#x52A8;&#x6D4B;&#x8BD5;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ startall.sh
+
+This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh
+Starting yarn<span class="token punctuation">..</span>.
+Starting resourcemanager
+Starting nodemanagers
+Starting dfs<span class="token punctuation">..</span>.
+Starting namenodes on <span class="token punctuation">[</span>node0<span class="token punctuation">]</span>
+Starting datanodes
+Starting secondary namenodes <span class="token punctuation">[</span>node0<span class="token punctuation">]</span>
+Starting historyserver<span class="token punctuation">..</span>.
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement <span class="token string">&quot;mapred --daemon start&quot;</span> instead.
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ jps
+
+8720 Jps
+8001 NameNode
+7442 NodeManager
+8451 SecondaryNameNode
+8661 JobHistoryServer
+7238 ResourceManager
+8198 DataNode
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node1:/usr/bd/hadoop-3.1.2$ jps
+
+2400 NodeManager
+2642 DataNode
+2746 Jps
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node2:/usr/bd/hadoop-3.1.2$ jps
+
+2688 DataNode
+2790 Jps
+2445 NodeManager
+</pre></li>
+<li>&#x5168;&#x90E8;&#x505C;&#x6B62;&#x6D4B;&#x8BD5;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ stopall.sh
+
+This script is Deprecated. Instead use stop-dfs.sh and stop-yarn.sh
+Stoping historyserver<span class="token punctuation">..</span>.
+WARNING: Use of this script to stop the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement <span class="token string">&quot;mapred --daemon stop&quot;</span> instead.
+Stoping dfs<span class="token punctuation">..</span>.
+Stopping namenodes on <span class="token punctuation">[</span>node0<span class="token punctuation">]</span>
+Stopping datanodes
+Stopping secondary namenodes <span class="token punctuation">[</span>node0<span class="token punctuation">]</span>
+Stoping yarn<span class="token punctuation">..</span>.
+Stopping nodemanagers
+Stopping resourcemanager
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ jps
+
+9786 Jps
+jack@node0:~$
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node1:~$ jps
+
+4174 Jps
+jack@node1:~$
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node2:~$ jps
+
+4000 Jps
+jack@node2:~$
+</pre></li>
+</ol>
+<h2 class="mume-header" id="66-mapreduce%E4%BD%9C%E4%B8%9A%E6%B5%8B%E8%AF%95">6.6 Mapreduce&#x4F5C;&#x4E1A;&#x6D4B;&#x8BD5;</h2>
+
+<ol>
+<li>&#x542F;&#x52A8;&#x96C6;&#x7FA4;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ startall.sh
+
+This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh
+Starting yarn<span class="token punctuation">..</span>.
+Starting resourcemanager
+Starting nodemanagers
+Starting dfs<span class="token punctuation">..</span>.
+Starting namenodes on <span class="token punctuation">[</span>node0<span class="token punctuation">]</span>
+Starting datanodes
+Starting secondary namenodes <span class="token punctuation">[</span>node0<span class="token punctuation">]</span>
+Starting historyserver<span class="token punctuation">..</span>.
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement <span class="token string">&quot;mapred --daemon start&quot;</span> instead.
+</pre></li>
+<li>&#x5728;&#x96C6;&#x7FA4;&#x4E0A;&#x521B;&#x5EFA;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x5939;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ hdfs dfs -mkdir /user   
+jack@node0:~$ hdfs dfs -mkdir /user/jack   
+jack@node0:~$ hdfs dfs -mkdir /user/jack/input
+</pre></li>
+<li>&#x590D;&#x5236;&#x6587;&#x4EF6;&#x5230;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x5939;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ hdfs dfs -put /usr/bd/hadoop-3.1.2/etc/hadoop/*.xml /user/jack/input
+</pre></li>
+<li>&#x67E5;&#x770B;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x60C5;&#x51B5;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ hdfs dfs -ls /user/jack/input
+
+Found 9 items
+-rw-r--r--   2 jack supergroup       8260 2019-03-20 08:04 /user/jack/input/capacity-scheduler.xml
+-rw-r--r--   2 jack supergroup       1051 2019-03-20 08:04 /user/jack/input/core-site.xml
+-rw-r--r--   2 jack supergroup      11392 2019-03-20 08:04 /user/jack/input/hadoop-policy.xml
+-rw-r--r--   2 jack supergroup       1522 2019-03-20 08:04 /user/jack/input/hdfs-site.xml
+-rw-r--r--   2 jack supergroup        620 2019-03-20 08:04 /user/jack/input/httpfs-site.xml
+-rw-r--r--   2 jack supergroup       3518 2019-03-20 08:04 /user/jack/input/kms-acls.xml
+-rw-r--r--   2 jack supergroup        682 2019-03-20 08:04 /user/jack/input/kms-site.xml
+-rw-r--r--   2 jack supergroup       1612 2019-03-20 08:04 /user/jack/input/mapred-site.xml
+-rw-r--r--   2 jack supergroup       1716 2019-03-20 08:04 /user/jack/input/yarn-site.xml
+</pre></li>
+<li>&#x5728;&#x96C6;&#x7FA4;&#x4E0A;&#x505A;MapReduce&#x4EFB;&#x52A1;&#x6D4B;&#x8BD5;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:/usr/bd/hadoop-3.1.2$ hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.2.jar wordcount /user/jack/input /user/jack/output
+
+2019-03-20 08:06:01,828 INFO client.RMProxy: Connecting to ResourceManager at node0/192.168.1.251:8032
+2019-03-20 08:06:03,044 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding <span class="token keyword">for</span> path: /tmp/hadoop-yarn/staging/jack/.staging/job_1553068932549_0001
+2019-03-20 08:06:03,548 INFO input.FileInputFormat: Total input files to process <span class="token keyword">:</span> 9
+2019-03-20 08:06:03,688 INFO mapreduce.JobSubmitter: number of splits:9
+2019-03-20 08:06:04,136 INFO mapreduce.JobSubmitter: Submitting tokens <span class="token keyword">for</span> job: job_1553068932549_0001
+2019-03-20 08:06:04,138 INFO mapreduce.JobSubmitter: Executing with tokens: <span class="token punctuation">[</span><span class="token punctuation">]</span>
+2019-03-20 08:06:04,915 INFO conf.Configuration: resource-types.xml not found
+2019-03-20 08:06:04,917 INFO resource.ResourceUtils: Unable to <span class="token function">find</span> <span class="token string">&apos;resource-types.xml&apos;</span><span class="token keyword">.</span>
+2019-03-20 08:06:06,590 INFO impl.YarnClientImpl: Submitted application application_1553068932549_0001
+2019-03-20 08:06:07,831 INFO mapreduce.Job: The url to track the job: http://node0:8088/proxy/application_1553068932549_0001/
+2019-03-20 08:06:07,874 INFO mapreduce.Job: Running job: job_1553068932549_0001
+2019-03-20 08:06:37,344 INFO mapreduce.Job: Job job_1553068932549_0001 running <span class="token keyword">in</span> uber mode <span class="token keyword">:</span> <span class="token boolean">false</span>
+2019-03-20 08:06:37,348 INFO mapreduce.Job:  map 0% reduce 0%
+2019-03-20 08:07:11,095 INFO mapreduce.Job:  map 11% reduce 0%
+2019-03-20 08:07:48,732 INFO mapreduce.Job:  map 11% reduce 4%
+2019-03-20 08:08:15,232 INFO mapreduce.Job:  map 22% reduce 4%
+2019-03-20 08:08:18,409 INFO mapreduce.Job:  map 22% reduce 7%
+2019-03-20 08:08:19,634 INFO mapreduce.Job:  map 33% reduce 7%
+2019-03-20 08:08:24,592 INFO mapreduce.Job:  map 33% reduce 11%
+2019-03-20 08:08:29,340 INFO mapreduce.Job:  map 44% reduce 11%
+2019-03-20 08:08:30,458 INFO mapreduce.Job:  map 44% reduce 15%
+2019-03-20 08:09:02,494 INFO mapreduce.Job:  map 56% reduce 15%
+2019-03-20 08:09:10,912 INFO mapreduce.Job:  map 67% reduce 22%
+2019-03-20 08:11:39,987 INFO mapreduce.Job:  map 100% reduce 22%
+2019-03-20 08:11:49,729 INFO mapreduce.Job:  map 100% reduce 100%
+2019-03-20 08:12:05,984 INFO mapreduce.Job: Job job_1553068932549_0001 completed successfully
+2019-03-20 08:12:06,547 INFO mapreduce.Job: Counters: 55
+        File System Counters
+                FILE: Number of bytes read<span class="token operator">=</span>22297
+                FILE: Number of bytes written<span class="token operator">=</span>2207687
+                FILE: Number of <span class="token function">read</span> operations<span class="token operator">=</span>0
+                FILE: Number of large <span class="token function">read</span> operations<span class="token operator">=</span>0
+                FILE: Number of <span class="token function">write</span> operations<span class="token operator">=</span>0
+                HDFS: Number of bytes read<span class="token operator">=</span>31396
+                HDFS: Number of bytes written<span class="token operator">=</span>11092
+                HDFS: Number of <span class="token function">read</span> operations<span class="token operator">=</span>32
+                HDFS: Number of large <span class="token function">read</span> operations<span class="token operator">=</span>0
+                HDFS: Number of <span class="token function">write</span> operations<span class="token operator">=</span>2
+        Job Counters
+                Killed map tasks<span class="token operator">=</span>8
+                Launched map tasks<span class="token operator">=</span>17
+                Launched reduce tasks<span class="token operator">=</span>1
+                Data-local map tasks<span class="token operator">=</span>8
+                Rack-local map tasks<span class="token operator">=</span>9
+                Total <span class="token function">time</span> spent by all maps <span class="token keyword">in</span> occupied slots <span class="token punctuation">(</span>ms<span class="token punctuation">)</span><span class="token operator">=</span>2225576
+                Total <span class="token function">time</span> spent by all reduces <span class="token keyword">in</span> occupied slots <span class="token punctuation">(</span>ms<span class="token punctuation">)</span><span class="token operator">=</span>275532
+                Total <span class="token function">time</span> spent by all map tasks <span class="token punctuation">(</span>ms<span class="token punctuation">)</span><span class="token operator">=</span>2225576
+                Total <span class="token function">time</span> spent by all reduce tasks <span class="token punctuation">(</span>ms<span class="token punctuation">)</span><span class="token operator">=</span>275532
+                Total vcore-milliseconds taken by all map tasks<span class="token operator">=</span>2225576
+                Total vcore-milliseconds taken by all reduce tasks<span class="token operator">=</span>275532
+                Total megabyte-milliseconds taken by all map tasks<span class="token operator">=</span>2278989824
+                Total megabyte-milliseconds taken by all reduce tasks<span class="token operator">=</span>282144768
+        Map-Reduce Framework
+                Map input records<span class="token operator">=</span>831
+                Map output records<span class="token operator">=</span>3150
+                Map output bytes<span class="token operator">=</span>40096
+                Map output materialized bytes<span class="token operator">=</span>22345
+                Input <span class="token function">split</span> bytes<span class="token operator">=</span>1023
+                Combine input records<span class="token operator">=</span>3150
+                Combine output records<span class="token operator">=</span>1269
+                Reduce input groups<span class="token operator">=</span>625
+                Reduce shuffle bytes<span class="token operator">=</span>22345
+                Reduce input records<span class="token operator">=</span>1269
+                Reduce output records<span class="token operator">=</span>625
+                Spilled Records<span class="token operator">=</span>2538
+                Shuffled Maps <span class="token operator">=</span>9
+                Failed Shuffles<span class="token operator">=</span>0
+                Merged Map outputs<span class="token operator">=</span>9
+                GC <span class="token function">time</span> elapsed <span class="token punctuation">(</span>ms<span class="token punctuation">)</span><span class="token operator">=</span>65818
+                CPU <span class="token function">time</span> spent <span class="token punctuation">(</span>ms<span class="token punctuation">)</span><span class="token operator">=</span>180360
+                Physical memory <span class="token punctuation">(</span>bytes<span class="token punctuation">)</span> snapshot<span class="token operator">=</span>2662285312
+                Virtual memory <span class="token punctuation">(</span>bytes<span class="token punctuation">)</span> snapshot<span class="token operator">=</span>26279993344
+                Total committed heap usage <span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token operator">=</span>2411200512
+                Peak Map Physical memory <span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token operator">=</span>280350720
+                Peak Map Virtual memory <span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token operator">=</span>2629558272
+                Peak Reduce Physical memory <span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token operator">=</span>242757632
+                Peak Reduce Virtual memory <span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token operator">=</span>2638413824
+        Shuffle Errors
+                BAD_ID<span class="token operator">=</span>0
+                CONNECTION<span class="token operator">=</span>0
+                IO_ERROR<span class="token operator">=</span>0
+                WRONG_LENGTH<span class="token operator">=</span>0
+                WRONG_MAP<span class="token operator">=</span>0
+                WRONG_REDUCE<span class="token operator">=</span>0
+        File Input Format Counters
+                Bytes Read<span class="token operator">=</span>30373
+        File Output Format Counters
+                Bytes Written<span class="token operator">=</span>11092
+</pre></li>
+<li>&#x67E5;&#x770B;&#x6267;&#x884C;&#x7ED3;&#x679C;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:/usr/bd/hadoop-3.1.2$ hdfs dfs -cat /user/jack/output/*
+
+<span class="token string">&quot;*&quot;</span>     21
+&quot;AS     9
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+<span class="token function">who</span>     3
+will    12
+with    28
+work    1
+writing,        9
+you     10
+zero    2
+</pre></li>
+<li>&#x67E5;&#x770B;http://node0:9870</li>
+<li>&#x67E5;&#x770B;http://node0:8088</li>
+<li>&#x67E5;&#x770B;http://node0:19888</li>
+<li>&#x5176;&#x4ED6;&#x6D4B;&#x8BD5;&#x7EC3;&#x4E60;<pre data-role="codeBlock" data-info="bash" class="language-bash">hadoop jar hadoop-mapreduce-examples-3.1.12.jar pi 5 5 input output
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">hadoop jar hadoop-mapreduce-examples-3.1.2.jar wordmean input output
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">hadoop jar hadoop-mapreduce-examples-3.1.2.jar wordmedian input output
+</pre></li>
+</ol>
+<h2 class="mume-header" id="67-%E5%85%B3%E6%9C%BA%E8%BF%87%E7%A8%8B">6.7 &#x5173;&#x673A;&#x8FC7;&#x7A0B;</h2>
+
+<ol>
+<li>&#x6240;&#x6709;&#x7BA1;&#x7406;&#x5DE5;&#x4F5C;&#x901A;&#x8FC7;putty&#x8FDE;&#x63A5;&#x5230;node0&#x5373;&#x53EF;&#x5B8C;&#x6210;<br>
+<img src="images/shutdown-01.png" alt></li>
+<li>&#x5173;&#x95ED;&#x96C6;&#x7FA4;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ stopall.sh
+
+This script is Deprecated. Instead use stop-dfs.sh and stop-yarn.sh
+Stoping historyserver<span class="token punctuation">..</span>.
+WARNING: Use of this script to stop the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement <span class="token string">&quot;mapred --daemon stop&quot;</span> instead.
+Stoping dfs<span class="token punctuation">..</span>.
+Stopping namenodes on <span class="token punctuation">[</span>node0<span class="token punctuation">]</span>
+Stopping datanodes
+Stopping secondary namenodes <span class="token punctuation">[</span>node0<span class="token punctuation">]</span>
+Stoping yarn<span class="token punctuation">..</span>.
+Stopping nodemanagers
+Stopping resourcemanager
+</pre></li>
+<li>&#x67E5;&#x770B;&#x96C6;&#x7FA4;&#x72B6;&#x6001;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ jps
+
+5199 Jps
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ <span class="token function">ssh</span> node1
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Last login: Thu Mar 28 01:00:31 2019 from 192.168.1.103
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node1:~$ jps
+
+2696 Jps
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node1:~$ <span class="token keyword">exit</span>
+
+<span class="token function">logout</span>
+Connection to node1 closed.
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ <span class="token function">ssh</span> node2
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Last login: Thu Mar 28 01:04:26 2019 from 192.168.1.103
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node2:~$ jps
+
+3264 Jps
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node2:~$ <span class="token keyword">exit</span>
+
+<span class="token function">logout</span>
+Connection to node2 closed.
+</pre></li>
+<li>&#x5173;&#x95ED;&#x865A;&#x62DF;&#x673A;<pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ <span class="token function">ssh</span> node1
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Last login: Tue Apr  2 03:18:06 2019 from 192.168.1.251
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node1:~$ <span class="token function">sudo</span> <span class="token function">shutdown</span> -h now
+
+jack@node0:~$
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ <span class="token function">ssh</span> node2
+
+<span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
+Last login: Tue Apr  2 03:18:45 2019 from 192.168.1.251
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node2:~$ <span class="token function">sudo</span> <span class="token function">shutdown</span> -h now
+
+jack@node0:~$
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">jack@node0:~$ <span class="token function">sudo</span> <span class="token function">shutdown</span> -h now
+</pre></li>
+<li>&#x5173;&#x95ED;WMware</li>
+<li>&#x5173;&#x95ED;&#x8BA1;&#x7B97;&#x673A;</li>
+</ol>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E7%AC%AC6%E7%AB%A0-hadoop%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2">&#x7B2C;6&#x7AE0; Hadoop&#x96C6;&#x7FA4;&#x90E8;&#x7F72;</a>
+<ul>
+<li><a href="#61-%E5%A4%8D%E5%88%B6vmware%E8%99%9A%E6%8B%9F%E6%9C%BA">6.1 &#x590D;&#x5236;VMware&#x865A;&#x62DF;&#x673A;</a></li>
+<li><a href="#62-%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C">6.2 &#x914D;&#x7F6E;&#x7F51;&#x7EDC;</a>
+<ul>
+<li><a href="#621-node0">6.2.1 node0</a></li>
+<li><a href="#622-node1">6.2.2 node1</a></li>
+<li><a href="#623-node2">6.2.3 node2</a></li>
+</ul>
+</li>
+<li><a href="#63-ssh%E5%85%8D%E5%AF%86%E7%A0%81%E8%AE%BE%E7%BD%AE">6.3 ssh&#x514D;&#x5BC6;&#x7801;&#x8BBE;&#x7F6E;</a>
+<ul>
+<li><a href="#631-node0">6.3.1 node0</a></li>
+<li><a href="#632-node1">6.3.2 node1</a></li>
+<li><a href="#633-node2">6.3.3 node2</a></li>
+<li><a href="#634-%E5%A4%8D%E5%88%B6%E5%85%AC%E9%92%A5%E5%88%B0%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9">6.3.4 &#x590D;&#x5236;&#x516C;&#x94A5;&#x5230;&#x5404;&#x4E2A;&#x8282;&#x70B9;</a></li>
+<li><a href="#635-%E6%9F%A5%E7%9C%8B%E5%90%84%E8%8A%82%E7%82%B9%E9%97%B4%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E6%83%85%E5%86%B5">6.3.5 &#x67E5;&#x770B;&#x5404;&#x8282;&#x70B9;&#x95F4;&#x514D;&#x5BC6;&#x7801;&#x767B;&#x5F55;&#x60C5;&#x51B5;</a></li>
+</ul>
+</li>
+<li><a href="#64-hadoop%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE">6.4 Hadoop&#x96C6;&#x7FA4;&#x914D;&#x7F6E;</a></li>
+<li><a href="#65-hadoop%E9%9B%86%E7%BE%A4%E6%B5%8B%E8%AF%95">6.5 Hadoop&#x96C6;&#x7FA4;&#x6D4B;&#x8BD5;</a></li>
+<li><a href="#66-mapreduce%E4%BD%9C%E4%B8%9A%E6%B5%8B%E8%AF%95">6.6 Mapreduce&#x4F5C;&#x4E1A;&#x6D4B;&#x8BD5;</a></li>
+<li><a href="#67-%E5%85%B3%E6%9C%BA%E8%BF%87%E7%A8%8B">6.7 &#x5173;&#x673A;&#x8FC7;&#x7A0B;</a></li>
+</ul>
+</li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

@@ -8,6 +8,7 @@
     - 第03章 [Hadoop本地部署](2020/03/local.html)
     - 第04章 [搭建Windows下编程环境](2020/04/win-ide.html)
     - 第05章 [伪分布模式部署Hadoop集群](2020/05/pseudo.html)
+    - 第06章 [Hadoop集群部署](2020/06/clust.html)
 2. [软件工具](https://pan.baidu.com/s/1b2hb8Of9fKAWzHx8ayllPw)(百度云下载密码：0zi5)
     - [官网](https://www.vmware.com/cn/products/workstation-pro.html) VMware-workstation-full-15.5.1-15018445.exe
     - [官网](https://ubuntu.com/) ubuntu-18.04.3-live-server-amd64.iso
