@@ -260,6 +260,7 @@ pre[data-line] .line-highlight[data-end]:after {
       <div class="mume markdown-preview  ">
       <h1 class="mume-header" id="%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%AA%E5%88%86%E5%B8%83%E6%A8%A1%E5%BC%8F%E9%83%A8%E7%BD%B2hadoop%E9%9B%86%E7%BE%A4">&#x7B2C;&#x4E94;&#x7AE0; &#x4F2A;&#x5206;&#x5E03;&#x6A21;&#x5F0F;&#x90E8;&#x7F72;Hadoop&#x96C6;&#x7FA4;</h1>
 
+<p>&#x8FBD;&#x5B81;&#x5E08;&#x8303;&#x5927;&#x5B66; &#x2022; &#x5F20;&#x5927;&#x4E3A;@<a href="https://daweizh.github.io/bd1/">https://daweizh.github.io/bd1/</a></p>
 <h2 class="mume-header" id="51-%E7%AE%80%E5%8D%95%E4%BC%AA%E5%88%86%E5%B8%83%E6%A8%A1%E5%BC%8F">5.1 &#x7B80;&#x5355;&#x4F2A;&#x5206;&#x5E03;&#x6A21;&#x5F0F;</h2>
 
 <ol>
@@ -307,32 +308,30 @@ Last login: Tue Mar 12 06:30:48 2019 from ::1
 Connection to localhost closed.
 </pre></li>
 <li>&#x4FEE;&#x6539;hadoop&#x4E0B;etc/hadoop/core-site.xml&#x6587;&#x4EF6;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /usr/bd/hadoop-3.1.2/etc/hadoop/core-site.xml
-
-<span class="token operator">&lt;</span>configuration<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>fs.defaultFS<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>hdfs://localhost:9000<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>hadoop.tmp.dir<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>/usr/bd/tmp<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>description<span class="token operator">&gt;</span>for hadoop temporary directories.<span class="token operator">&lt;</span>/description<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>/configuration<span class="token operator">&gt;</span>
-</pre></li>
+</pre><pre data-role="codeBlock" data-info="xml {.line-numbers}" class="language-xml line-numbers"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>fs.defaultFS<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>hdfs://localhost:9000<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>hadoop.tmp.dir<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>/usr/bd/tmp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span>for hadoop temporary directories.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
 <li>&#x4FEE;&#x6539;hadoop&#x4E0B;etc/hadoop/hdfs-site.xml&#x6587;&#x4EF6;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /usr/bd/hadoop-3.1.2/etc/hadoop/hdfs-site.xml
-
-<span class="token operator">&lt;</span>configuration<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>dfs.replication<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>1<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>dfs.namenode.http-address<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>node0:50070<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>/configuration<span class="token operator">&gt;</span>
-</pre></li>
+</pre><pre data-role="codeBlock" data-info="xml {.line-numbers}" class="language-xml line-numbers"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.replication<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.namenode.http-address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:50070<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
 <li>&#x683C;&#x5F0F;&#x5316;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ hdfs namenode -format
 
 2019-03-12 06:26:51,691 INFO namenode.NameNode: STARTUP_MSG:
@@ -385,16 +384,16 @@ Found 9 items
 
 <span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
 
-					Total committed heap usage <span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token operator">=</span>497025024
-	Shuffle Errors
-					BAD_ID<span class="token operator">=</span>0
-					CONNECTION<span class="token operator">=</span>0
-					IO_ERROR<span class="token operator">=</span>0
-					WRONG_LENGTH<span class="token operator">=</span>0
-					WRONG_MAP<span class="token operator">=</span>0
-					WRONG_REDUCE<span class="token operator">=</span>0
-	File Output Format Counters
-					Bytes Written<span class="token operator">=</span>0
+          Total committed heap usage <span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token operator">=</span>497025024
+  Shuffle Errors
+          BAD_ID<span class="token operator">=</span>0
+          CONNECTION<span class="token operator">=</span>0
+          IO_ERROR<span class="token operator">=</span>0
+          WRONG_LENGTH<span class="token operator">=</span>0
+          WRONG_MAP<span class="token operator">=</span>0
+          WRONG_REDUCE<span class="token operator">=</span>0
+  File Output Format Counters
+          Bytes Written<span class="token operator">=</span>0
 </pre></li>
 <li>&#x67E5;&#x770B;hdfs&#x6587;&#x4EF6;&#x4FE1;&#x606F;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ hdfs dfs -cat output/*
 
@@ -435,26 +434,26 @@ node0
 
 <span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
 ens33: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
-				inet 192.168.1.103  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet 192.168.1.103  netmask 255.255.255.0  broadcast 192.168.1.255
 <span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
 </pre><img src="images/basic-01.png" alt></li>
 <li>&#x914D;&#x7F6E;IP&#x5730;&#x5740;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/netplan/50-cloud-init.yaml
 
 network:
-		ethernets:
-				ens33:
-						addresses: <span class="token punctuation">[</span>192.168.1.252/24<span class="token punctuation">]</span>
-						gateway4: 192.168.1.254
-						dhcp4: <span class="token boolean">true</span>
-						optional: <span class="token boolean">true</span>
-		version: 2
+    ethernets:
+        ens33:
+            addresses: <span class="token punctuation">[</span>192.168.1.252/24<span class="token punctuation">]</span>
+            gateway4: 192.168.1.254
+            dhcp4: <span class="token boolean">true</span>
+            optional: <span class="token boolean">true</span>
+    version: 2
 </pre></li>
 <li>&#x6267;&#x884C;&#x7F51;&#x5361;&#x914D;&#x7F6E;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> netplan apply
 </pre></li>
 <li>&#x67E5;&#x770B;&#x7F51;&#x5361;&#x4FE1;&#x606F;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">ifconfig</span>
 
 ens33: flags<span class="token operator">=</span>4163<span class="token operator">&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu 1500
-				inet 192.168.1.252  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet 192.168.1.252  netmask 255.255.255.0  broadcast 192.168.1.255
 </pre></li>
 <li>&#x914D;&#x7F6E;&#x4E3B;&#x673A;&#x540D;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/hosts
 
@@ -483,53 +482,50 @@ search CEDO
 <li>&#x8FDB;&#x5165;Hadoop&#x5B89;&#x88C5;&#x6587;&#x4EF6;&#x5939;&#x7231;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">cd</span> /usr/bd/hadoop-3.1.2/
 </pre></li>
 <li>&#x914D;&#x7F6E;core-site.xml<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> etc/hadoop/core-site.xml
-
-<span class="token operator">&lt;</span>configuration<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>fs.defaultFS<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>hdfs://node0:9000<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>hadoop.tmp.dir<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>/usr/bd/tmp<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>description<span class="token operator">&gt;</span>for hadoop temporary directories.<span class="token operator">&lt;</span>/description<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>/configuration<span class="token operator">&gt;</span>
-</pre></li>
+</pre><pre data-role="codeBlock" data-info="xml {.line-numbers}" class="language-xml line-numbers"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>fs.defaultFS<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>hdfs://node0:9000<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>hadoop.tmp.dir<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>/usr/bd/tmp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span>for hadoop temporary directories.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
 <li>&#x914D;&#x7F6E;mapred-site.xml<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> etc/hadoop/mapred-site.xml
-
-<span class="token operator">&lt;</span>configuration<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>mapreduce.jobtracker.address<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>node0:9001<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>/configuration<span class="token operator">&gt;</span>
-</pre></li>
+</pre><pre data-role="codeBlock" data-info="xml {.line-numbers}" class="language-xml line-numbers"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.jobtracker.address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:9001<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
 <li>&#x914D;&#x7F6E;hdfs-site.xml<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> etc/hadoop/hdfs-site.xml
-
-<span class="token operator">&lt;</span>configuration<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>dfs.replication<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>1<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>dfs.namenode.http-address<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>node0:50070<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>dfs.namenode.name.dir<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>file:/usr/bd/dfs/name<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>dfs.datanode.data.dir<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>file:/usr/bd/dfs/data<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>dfs.permissions<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>false<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>/configuration<span class="token operator">&gt;</span>
-</pre></li>
+</pre><pre data-role="codeBlock" data-info="xml {.line-numbers}" class="language-xml line-numbers"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.replication<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.namenode.http-address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:50070<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.namenode.name.dir<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>file:/usr/bd/dfs/name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.datanode.data.dir<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>file:/usr/bd/dfs/data<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.permissions<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
 <li>&#x914D;&#x7F6E;workers<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> etc/hadoop/workers
 
 node0
@@ -631,18 +627,18 @@ $ hdfs dfs -put etc/hadoop/*.xml /user/jack/input
 <img src="images/mapred-14.png" alt></li>
 <li>step5 &#x3000;&#x3000;<br>
 <img src="images/mapred-15.png" alt></li>
-<li>step6 &#x589E;&#x52A0;static&#x4EE3;&#x7801;&#x6BB5;<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MaxTemperature</span> <span class="token punctuation">{</span>
-	<span class="token keyword">static</span> <span class="token punctuation">{</span>
-			<span class="token keyword">try</span> <span class="token punctuation">{</span>
-				<span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token string">&quot;D:/students/201621014321/bd1/wedo/hadoop/bin/hadoop.dll&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">UnsatisfiedLinkError</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-				<span class="token class-name">System</span><span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Native code library failed to load.\n&quot;</span> <span class="token operator">+</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-				<span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-	
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
-</pre></li>
+<li>step6 &#x589E;&#x52A0;static&#x4EE3;&#x7801;&#x6BB5;<pre data-role="codeBlock" data-info="java {.line-numbers}" class="language-java line-numbers"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MaxTemperature</span> <span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token string">&quot;D:/students/201621014321/bd1/wedo/hadoop/bin/hadoop.dll&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">UnsatisfiedLinkError</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Native code library failed to load.\n&quot;</span> <span class="token operator">+</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
 <li>step7 &#x3000;&#x3000;<br>
 <img src="images/mapred-16.png" alt></li>
 <li>step8 &#x3000;&#x3000;<br>
@@ -655,44 +651,42 @@ $ hdfs dfs -put etc/hadoop/*.xml /user/jack/input
 <li>&#x8FDB;&#x5165;hadoop&#x5B89;&#x88C5;&#x76EE;&#x5F55;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">cd</span> /usr/bd/hadoop-3.1.2/
 </pre></li>
 <li>&#x4FEE;&#x6539;hadoop&#x4E0B;etc/hadoop/mapred-site.xml&#x6587;&#x4EF6;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> etc/hadoop/mapred-site.xml
-
-<span class="token operator">&lt;</span>configuration<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>mapreduce.jobtracker.address<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>node0:9001<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>mapreduce.framework.name<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>yarn<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-			<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>yarn.app.mapreduce.am.env<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-			<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>HADOOP_MAPRED_HOME<span class="token operator">=</span>/usr/bd/hadoop-3.1.2<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-			<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>mapreduce.map.env<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-			<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>HADOOP_MAPRED_HOME<span class="token operator">=</span>/usr/bd/hadoop-3.1.2<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-			<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>mapreduce.reduce.env<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-			<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>HADOOP_MAPRED_HOME<span class="token operator">=</span>/usr/bd/hadoop-3.1.2<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-	<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>/configuration<span class="token operator">&gt;</span>
-</pre></li>
+</pre><pre data-role="codeBlock" data-info="xml {.line-numbers}" class="language-xml line-numbers"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.jobtracker.address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:9001<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.framework.name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>yarn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.app.mapreduce.am.env<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>HADOOP_MAPRED_HOME=/usr/bd/hadoop-3.1.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.map.env<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>HADOOP_MAPRED_HOME=/usr/bd/hadoop-3.1.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.reduce.env<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>HADOOP_MAPRED_HOME=/usr/bd/hadoop-3.1.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
 <li>&#x4FEE;&#x6539;hadoop&#x4E0B;etc/hadoop/yarn-site.xml&#x6587;&#x4EF6;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> etc/hadoop/yarn-site.xml
-
-<span class="token operator">&lt;</span>configuration<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span><span class="token operator">!</span>-- Site specific YARN configuration properties --<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>yarn.nodemanager.aux-services<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>mapreduce_shuffle<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>yarn.nodemanager.vmem-check-enabled<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>false<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>/configuration<span class="token operator">&gt;</span>
-</pre></li>
+</pre><pre data-role="codeBlock" data-info="xml {.line-numbers}" class="language-xml line-numbers"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- Site specific YARN configuration properties --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.nodemanager.aux-services<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>mapreduce_shuffle<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.nodemanager.vmem-check-enabled<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
 <li>&#x542F;&#x52A8;YARN<pre data-role="codeBlock" data-info="bash" class="language-bash">$ start-yarn.sh
 </pre></li>
 <li>&#x67E5;&#x770B;&#x542F;&#x52A8;&#x8FDB;&#x7A0B;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ jps
@@ -720,17 +714,17 @@ drwxr-xr-x   - jack supergroup          0 2018-03-19 10:50 /user/jack/input
 </pre></li>
 <li>&#x6267;&#x884C;MapReduce<pre data-role="codeBlock" data-info="bash" class="language-bash">$ hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.2.jar <span class="token function">grep</span> input output <span class="token string">&apos;dfs[a-z.]+&apos;</span>
 
-			Shuffle Errors
-							BAD_ID<span class="token operator">=</span>0
-							CONNECTION<span class="token operator">=</span>0
-							IO_ERROR<span class="token operator">=</span>0
-							WRONG_LENGTH<span class="token operator">=</span>0
-							WRONG_MAP<span class="token operator">=</span>0
-							WRONG_REDUCE<span class="token operator">=</span>0
-			File Input Format Counters
-							Bytes Read<span class="token operator">=</span>285
-			File Output Format Counters
-							Bytes Written<span class="token operator">=</span>115
+      Shuffle Errors
+              BAD_ID<span class="token operator">=</span>0
+              CONNECTION<span class="token operator">=</span>0
+              IO_ERROR<span class="token operator">=</span>0
+              WRONG_LENGTH<span class="token operator">=</span>0
+              WRONG_MAP<span class="token operator">=</span>0
+              WRONG_REDUCE<span class="token operator">=</span>0
+      File Input Format Counters
+              Bytes Read<span class="token operator">=</span>285
+      File Output Format Counters
+              Bytes Written<span class="token operator">=</span>115
 </pre><img src="images/yarn-01.png" alt></li>
 <li>&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#x95EE;&#x9898;&#xFF1A; Name node is in safe mode. &#x7A0D;&#x7B49;&#x4E00;&#x4F1A;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</li>
 <li>&#x67E5;&#x770B;&#x6267;&#x884C;&#x7ED3;&#x679C;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ hdfs dfs -cat /user/jack/output/*
@@ -753,34 +747,33 @@ drwxr-xr-x   - jack supergroup          0 2018-03-19 10:50 /user/jack/input
 <li>&#x8FDB;&#x5165;hadoop&#x5B89;&#x88C5;&#x76EE;&#x5F55;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">cd</span> /usr/bd/hadoop-3.1.2/
 </pre></li>
 <li>&#x4FEE;&#x6539;hadoop&#x4E0B;etc/hadoop/mapred-site.xml&#x6587;&#x4EF6;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> etc/hadoop/mapred-site.xml
-
-<span class="token operator">&lt;</span>configuration<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>mapreduce.jobtracker.address<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>node0:9001<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>yarn.app.mapreduce.am.env<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>HADOOP_MAPRED_HOME<span class="token operator">=</span>/usr/bd/hadoop-3.1.2<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>mapreduce.map.env<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>HADOOP_MAPRED_HOME<span class="token operator">=</span>/usr/bd/hadoop-3.1.2<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>mapreduce.reduce.env<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>HADOOP_MAPRED_HOME<span class="token operator">=</span>/usr/bd/hadoop-3.1.2<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>mapreduce.framework.name<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>yarn<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>mapreduce.jobhistory.address<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
-				<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>localhost:10020<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
-		<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>/configuration<span class="token operator">&gt;</span>
-</pre></li>
+</pre><pre data-role="codeBlock" data-info="xml {.line-numbers}" class="language-xml line-numbers"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.jobtracker.address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>node0:9001<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>yarn.app.mapreduce.am.env<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>HADOOP_MAPRED_HOME=/usr/bd/hadoop-3.1.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.map.env<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>HADOOP_MAPRED_HOME=/usr/bd/hadoop-3.1.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.reduce.env<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>HADOOP_MAPRED_HOME=/usr/bd/hadoop-3.1.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.framework.name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>yarn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>mapreduce.jobhistory.address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>localhost:10020<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></li>
 <li>&#x542F;&#x52A8;YARN<pre data-role="codeBlock" data-info="bash" class="language-bash">$ start-yarn.sh 
 </pre></li>
 <li>&#x67E5;&#x770B;&#x542F;&#x52A8;&#x8FDB;&#x7A0B;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ jps
@@ -822,17 +815,17 @@ drwxr-xr-x   - jack supergroup          0 2018-03-19 10:50 /user/jack/input
 <li>&#x6267;&#x884C;MapReduce<pre data-role="codeBlock" data-info="bash" class="language-bash">$ hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.5.jar <span class="token function">grep</span> input output <span class="token string">&apos;dfs[a-z.]+&apos;</span>
 
 <span class="token punctuation">..</span>. <span class="token punctuation">..</span>.
-			Shuffle Errors
-							BAD_ID<span class="token operator">=</span>0
-							CONNECTION<span class="token operator">=</span>0
-							IO_ERROR<span class="token operator">=</span>0
-							WRONG_LENGTH<span class="token operator">=</span>0
-							WRONG_MAP<span class="token operator">=</span>0
-							WRONG_REDUCE<span class="token operator">=</span>0
-			File Input Format Counters
-							Bytes Read<span class="token operator">=</span>285
-			File Output Format Counters
-							Bytes Written<span class="token operator">=</span>115
+      Shuffle Errors
+              BAD_ID<span class="token operator">=</span>0
+              CONNECTION<span class="token operator">=</span>0
+              IO_ERROR<span class="token operator">=</span>0
+              WRONG_LENGTH<span class="token operator">=</span>0
+              WRONG_MAP<span class="token operator">=</span>0
+              WRONG_REDUCE<span class="token operator">=</span>0
+      File Input Format Counters
+              Bytes Read<span class="token operator">=</span>285
+      File Output Format Counters
+              Bytes Written<span class="token operator">=</span>115
 </pre></li>
 <li>HDFS&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;<pre data-role="codeBlock" data-info="bash" class="language-bash">$ hdfs dfs -cat /user/jack/output/*
 
