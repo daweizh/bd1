@@ -14,7 +14,7 @@
     - 第09章 [KMeans](2020/handout/09/kmeans.html)
     - 第10章 [Mahout](2020/handout/10/mahout.html)
     - 附件 A [使用Git管理代码]
-    - 附件 B [常用Linux命令]
+    - 附件 B [Linux常用命令及使用方法](2020/handout/ab/b.html)
 2. [软件工具](2020/tool/tool.html)
 
 
