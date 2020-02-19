@@ -13,8 +13,9 @@
     - 第08章 [MapReduce实例](2020/handout/08/example.html)
     - 第09章 [KMeans](2020/handout/09/kmeans.html)
     - 第10章 [Mahout](2020/handout/10/mahout.html)
-    - 附件 A [使用Git管理代码]
-    - 附件 B [Linux常用命令及使用方法](2020/handout/ab/b.html)
+    - 附件 A [gfs](2020/handout/aa/gfs.html)，[mapreduce](2020/handout/aa/mapreduce.html)，[bigtable](2020/handout/aa/bigtable.html)
+    - 附件 B [使用Git管理代码](2020/handout/ab/vcs.html)
+    - 附件 C [Linux常用命令及使用方法](2020/handout/ac/command.html)
 2. [软件工具](2020/tool/tool.html)
 
 
