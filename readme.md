@@ -17,6 +17,8 @@
     - 附件 B [使用Git管理代码](2020/handout/ab/vcs.html)
     - 附件 C [Linux常用命令及使用方法](2020/handout/ac/command.html)
 2. [软件工具](2020/tool/tool.html)
+3. 视频教程
+    - [Mahout](tutorial/mahout.html)
 
 
 <table style="border:0px;font-size:12px;">
