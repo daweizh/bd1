@@ -2,7 +2,7 @@
 
 ## 大数据编程基础
 
-1. 课程讲义
+1. 讲义&笔记(2020)
     - 第01章 [简介](2020/handout/01/intro.html)
     - 第02章 [基础环境准备](2020/handout/02/base-env.html)
     - 第03章 [Hadoop本地部署](2020/handout/03/local.html)
@@ -13,13 +13,16 @@
     - 第08章 [MapReduce实例](2020/handout/08/example.html)
     - 第09章 [KMeans](2020/handout/09/kmeans.html)
     - 第10章 [Mahout](2020/handout/10/mahout.html)
-    - 附件 A [gfs](2020/handout/aa/gfs.html)，[mapreduce](2020/handout/aa/mapreduce.html)，[bigtable](2020/handout/aa/bigtable.html)
-    - 附件 B [使用Git管理代码](2020/handout/ab/vcs.html)
-    - 附件 C [Linux常用命令及使用方法](2020/handout/ac/command.html)
-2. [软件工具](2020/tool/tool.html)
-3. 视频教程
+2. 软件工具(2020)
+    - [tool](2020/tool/tool.html) 
+3. 附录资源
+    - 附录A：[Linux常用命令](appendix/a/command.html)
+    - 附录B：[版本控制系统操作说明](appendix/b/vcs.html)
+4. 参考文献
+    - [参考文章](reference/paper/index.html)
+    - [参考教材](reference/book/index.html)
+5. 视频教程
     - [Mahout](tutorial/mahout.html)
-
 
 <table style="border:0px;font-size:12px;">
   <tr>
