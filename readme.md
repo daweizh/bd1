@@ -21,6 +21,8 @@
 4. 参考文献
     - [参考文章](reference/paper/index.html)
     - [参考教材](reference/book/index.html)
+5. 实验数据
+    - [data](data/index.html) 
 5. 视频教程
     - [Mahout](tutorial/mahout.html)
 
