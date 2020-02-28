@@ -18,6 +18,7 @@
 3. 附录资源
     - 附录A：[Linux常用命令](appendix/a/command.html)
     - 附录B：[版本控制系统操作说明](appendix/b/vcs.html)
+    - 附录C：[Mahout机器学习算法](appendix/c/mahout.html)
 4. 参考文献
     - [参考文章](reference/paper/index.html)
     - [参考教材](reference/book/index.html)
