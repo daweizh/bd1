@@ -4,7 +4,7 @@
 
 1. 讲义&笔记(2020)
     - 第01章 [简介](2020/handout/01/intro.html)
-    - 第02章 [基础环境准备](2020/handout/02/base-env.html)，[视频演示](2020/handout/02/videos.html)
+    - 第02章 [基础环境准备](2020/handout/02/base-env.html)，[√视频演示](2020/handout/02/videos.html)
     - 第03章 [Hadoop本地部署](2020/handout/03/local.html)
     - 第04章 [搭建Windows下编程环境](2020/handout/04/win-ide.html)
     - 第05章 [伪分布模式部署Hadoop集群](2020/handout/05/pseudo.html)
