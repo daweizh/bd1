@@ -9,7 +9,7 @@
     - 第04章 [搭建Windows下编程环境](2020/handout/04/win-ide.html)，√[视频演示](2020/handout/04/videos.html)
     - 第05章 [伪分布模式部署Hadoop集群](2020/handout/05/pseudo.html)，√[视频演示](2020/handout/05/videos.html)
     - 第06章 [Hadoop集群部署](2020/handout/06/clust.html)，√[视频演示](2020/handout/06/videos.html)
-    - 第07章 [编写MapReduce程序](2020/handout/07/mapreduce.html)
+    - 第07章 [编写MapReduce程序](2020/handout/07/mapreduce.html)，√[视频演示](2020/handout/07/videos.html)
     - 第08章 [MapReduce实例](2020/handout/08/example.html)
     - 第09章 [KMeans](2020/handout/09/kmeans.html)
     - 第10章 [Mahout](2020/handout/10/mahout.html)
